@@ -144,7 +144,7 @@
 							<tr>
 								<td><?php echo $sakafo->getTypeSakafo()->getNom();?></td>
 								<td><?php echo $sakafo->getNom();?></td>
-								<td class="right"><?php echo $this->$sakafo->getPrix();?></td>
+								<td class="right"><?php echo $this->Formater->format($sakafo->getPrix());?></td>
 								<td><input type="button" value="Modifier"></td>
 							</tr>
 						<?php } ?>
