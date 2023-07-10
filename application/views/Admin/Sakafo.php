@@ -2,6 +2,8 @@
 		<?php //var_dump($listeSakafo);?>
 		<section class="ftco-section">
 			<div class="container">
+            <h3><b>Liste Sakafo</b></h3>
+				<hr>
 				<table>
 					<thead>
 						<tr>

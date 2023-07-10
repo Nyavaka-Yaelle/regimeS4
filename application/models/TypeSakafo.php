@@ -71,7 +71,7 @@
         }
         public function getTypeObjectif(){
             $typeObjectif = new TypeObjectif($this->getIdTypeObjectif(),null);
-        return $typeObjectif->getDonneById();
+            return $typeObjectif->getDonneById();
         }
     }
 ?>

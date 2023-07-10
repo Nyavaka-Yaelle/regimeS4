@@ -28,6 +28,18 @@
             }
             return $results;
         }
+        public function getDonneById()
+        {
+            $this->db->where('idTypeEnchainement', $this->getIdTypeEnchainement());
+            $query = $this->db->get('TypeEnchainement');
+            foreach ($query->result() as $row) {
+                $typeObjectf = new TypeEnchainement();
+                $typeObjectf->setIdTypeEnchainement($row->idTypeEnchainement);
+                $typeObjectf->setNom($row->nom);
+                return $typeObjectf;
+            }
+            return null;
+        }
 
         public function __construct($idTypeEnchainement = null, $nom = null){
             $this->setIdTypeEnchainement($idTypeEnchainement);

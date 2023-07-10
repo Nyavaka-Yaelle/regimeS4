@@ -1,6 +1,8 @@
 	<div class="content">
 		<section class="ftco-section">
 			<div class="container">
+			<h3><b>Liste Type Enchainement</b></h3>
+				<hr>
 				<table>
 					<thead>
 						<tr>

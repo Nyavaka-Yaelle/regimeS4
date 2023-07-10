@@ -49,6 +49,10 @@
     public function getIdTypeEnchainement(){
         return $this->idTypeEnchainement;
     }
+    public function getTypeEnchainement(){
+        $typeEnchainement = new TypeEnchainement($this->getIdTypeEnchainement(),null);
+        return $typeEnchainement->getDonneById();
+}
     public function setIdTypeEnchainement($idTypeEnchainement){
         $this->idTypeEnchainement = $idTypeEnchainement;
     }
