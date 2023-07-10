@@ -5,16 +5,63 @@ class ControllerAdmin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 	}
-	public function Index()
+    public function Index()
+	{
+        redirect("ControllerAdmin/Sakafo");
+    }
+	public function Sakafo()
 	{
         $data = array();
         $data['listeSakafo'] = $this->Sakafo->getDonne();
-		$this->load->view('Admin/Index',$data);
+        $data['content'] = 'Sakafo';
+		$this->load($data);
+	}
+    public function TypeSakafo()
+	{
+        $data = array();
+        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'TypeSakafo';
+		$this->load($data);
+	}
+    public function TypeEnchainement()
+	{
+        $data = array();
+        $data['listeTypeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'TypeEnchainement';
+		$this->load($data);
+	}
+    public function Enchainement()
+	{
+        $data = array();
+        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['content'] = 'Enchainement';
+		$this->load($data);
+	}
+    public function load($data)
+	{
+		$this->load->view('Admin/Header');
+		$this->load->view('Admin/'.$data['content'],$data);
+		$this->load->view('Admin/Footer');
 	}
     public function content()
     {
         $action = $this->input->get('action');
-        // if() 
+        if($action==1)
+        {
+            $this->Sakafo();
+        } 
+        else if($action==11)
+        {
+            Sthis->TypeSakafo();
+        }
+        else if($action==2)
+        {
+            Sthis->TypeEnchainement();
+        }
+        else if($action==21)
+        {
+            Sthis->Enchainement();
+        }
     }
 	
 }

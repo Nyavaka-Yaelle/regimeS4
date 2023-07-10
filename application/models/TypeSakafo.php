@@ -69,5 +69,9 @@
         public function getIdTypeObjectif(){
             return $this->idTypeObjectif;
         }
+        public function getTypeObjectif(){
+            $typeObjectif = new TypeObjectif($this->getIdTypeObjectif(),null);
+        return $typeObjectif->getDonneById();
+        }
     }
 ?>

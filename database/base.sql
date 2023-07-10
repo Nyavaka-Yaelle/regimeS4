@@ -196,3 +196,6 @@ create or replace view v_ActiviteEnchainement as (
 create or replace view v_Sakafo as (
     select s.*,ts.nom nomTypeSakafo, ts.idTypeObjectif from sakafo s join TypeSakafo ts on s.idTypeSakafo = ts.idTypeSakafo
 );
+create or replace view v_TypeSakafo as (
+    select ts.*,ob.nom nomTypeObjectif from TypeSakafo ts join TypeObjectif ob on ts.idTypeObjectif = ob.idTypeObjectif
+);

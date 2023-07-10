@@ -51,7 +51,7 @@
         return $this->idTypeSakafo;
     }
     public function getTypeSakafo(){
-        $typeSakafo = new TypeSakafo($this->idTypeSakafo,null);
+        $typeSakafo = new TypeSakafo($this->getIdTypeSakafo(),null);
         return $typeSakafo->getDonneById();
     }
     public function setIdTypeSakafo($idTypeSakafo){
