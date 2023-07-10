@@ -56,6 +56,7 @@
         $this->idCarte = $idCarte;
     }
     public function getDateValidation(){
+        if($dateValidation==null) $this->setDateValidation(new DateTime(null, new DateTimeZone('Indian/Antananarivo')));
         return $this->dateValidation;
     }
     public function setDateValidation($dateValidation){
