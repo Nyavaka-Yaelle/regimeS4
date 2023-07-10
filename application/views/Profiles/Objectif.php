@@ -31,7 +31,7 @@
 							<div class="form-group d-md-flex">
                                 <div class="w-50">
                                     <label class="checkbox-wrap checkbox-primary"><?php echo $objecif->getNom() ?>
-                                        <input type="checkbox" name="<?php echo $objecif->getIdObjectif() ?>" value="<?php echo $objecif->getIdObjectif() ?>">
+                                        <input type="checkbox" name="checkboxes[]" value="<?php echo $objecif->getIdObjectif() ?>">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>

@@ -131,6 +131,14 @@
             return $this->db->insert_id();
         }
 
+        public function insertObjectifUtilisateur($listObjectif){
+            foreach ($listObjectif as $objectif) {
+                $id = $objectif->getIdObjectif();
+                $ObjectifUtilisateur = new ObjectifUtilisateur(null,$this->idUtilisateur,$id);
+                $ObjectifUtilisateur->insertDonne();
+            }
+        }
+
         public function __construct($idUtilisateur = null, $nom = null, $email = null, $motDePasse = null, $identification = null){
             $this->idUtilisateur = $idUtilisateur;
             $this->nom = $nom;

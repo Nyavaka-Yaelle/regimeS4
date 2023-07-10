@@ -36,7 +36,6 @@
         {
             $query = $this->db->where('idObjectif', $this->getIdObjectif());
             $query = $this->db->get('Objectif');
-
             foreach ($query->result() as $row) {
                 $typeObjectif = new Objectif();
                 $typeObjectif->setIdObjectif($row->idObjectif);
