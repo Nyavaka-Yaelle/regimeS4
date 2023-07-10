@@ -4,12 +4,14 @@
     class Objectif extends CI_Model
     {
         private $idObjectif;
+        private $idTypeObjectif;
         private $nom;
 
         public function insertDonne()
         {
             $data = array(
                 'idObjectif' => $this->getIdObjectif(),
+                'idTypeObjectif' => $this->getIdTypeObjectif(),
                 'nom' => $this->getNom()
             );
             $this->db->insert('Objectif', $data);
@@ -23,6 +25,7 @@
             foreach ($query->result() as $row) {
                 $typeObjectf = new Objectif();
                 $typeObjectf->setIdObjectif($row->idObjectif);
+                $typeObjectf->setIdTypeObjectif($row->idTypeObjectif);
                 $typeObjectf->setNom($row->nom);
                 $results[] = $typeObjectf;
             }
@@ -38,6 +41,12 @@
         }
         public function getIdObjectif(){
             return $this->idObjectif;
+        }
+        public function setIdTypeObjectif($idTypeObjectif){
+            $this->idTypeObjectif = $idTypeObjectif;
+        }
+        public function getIdTypeObjectif(){
+            return $this->idTypeObjectif;
         }
         public function setNom($nom){
             $this->nom = $nom;
