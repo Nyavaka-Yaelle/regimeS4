@@ -30,7 +30,7 @@
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary"><?php echo $listTypeObjectif->getNom();?>
 									<?php echo $listTypeObjectif->getIdTypeObjectif();?>
-										<input type="radio" name="objectif" checked value="<?php echo $listTypeObjectif->getIdTypeObjectif();?>">
+										<input type="radio" name="idTypeObjectif" checked value="<?php echo $listTypeObjectif->getIdTypeObjectif();?>">
 										<span class="checkmark"></span>
 									</label>
 								</div>

@@ -60,8 +60,8 @@ class ControllerProfiles extends CI_Controller {
         $typeObjectif->setIdTypeObjectif($idTypeObjectif);
         $typeObjectif = $typeObjectif->getDonneById();
         $this->typeObjectif = $typeObjectif;
-        $data['listObjectif'] = $typeObjectif->getObjectif();
-        $this->load->view('Profiles/Objectif');
+        $data['listObjectif'] = $this->typeObjectif->getObjectif();
+        $this->load->view('Profiles/Objectif',$data);
 	}
 	public function FillObjectif()
 	{
