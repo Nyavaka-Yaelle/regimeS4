@@ -30,5 +30,30 @@ class ControllerProfiles extends CI_Controller {
 			//$this->load->view('Profiles/Index');
 		}
 	}
+	public function FillTypeObjectif()
+	{
+		$this->session->userdata('idUtilisateur');
+		$profiles = new Profiles(null,$idUtilisateur,$genre,$taille,$poids,$dateNaissance);
+		$results = $profiles->insertDonne();
+		if(!$results){
+			redirect('ControllerProfiles/index');
+		}else{
+			$this->Index();
+			//$this->load->view('Profiles/Index');
+		}
+	}
+	public function getObjectif()
+	{
+		$typeObjectif = $this->session->userdata('typeObjectif'); 
+		$objectifs = $this->TypeObjectif(null,$typeObjectif)->getObjectif();
+		$results = array();
+		for($i=0; $i<count($objectifs); $i++)
+		{
+			$id = $this->input->post('objectif'.$i);
+			$objectif = $this->Objectif()->getDonneById($id);
+			$results[] = $objectif;
+		}
+		return $results;
+	}
 }
 ?>
