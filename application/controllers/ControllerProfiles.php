@@ -15,7 +15,6 @@ class ControllerProfiles extends CI_Controller {
             $this->user = new Client();
             $this->user->setIdUtilisateur($idUser);
             $this->user = $this->user->getUtilisateur();
-            echo $this->user->getEmail();
         }
 	}
     public function Index(){
