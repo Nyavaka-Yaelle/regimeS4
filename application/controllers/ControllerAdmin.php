@@ -14,7 +14,7 @@ class ControllerAdmin extends CI_Controller {
     public function content()
     {
         $action = $this->input->get('action');
-        if() 
+        // if() 
     }
 	
 }
