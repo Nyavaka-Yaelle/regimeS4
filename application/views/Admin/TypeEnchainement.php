@@ -13,10 +13,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($listeTypeEnchainement as $typeEnchainement){ ?>
+						<?php foreach($listeTypeEnchainement as $type){ ?>
 							<tr>
-								<td><?php echo $typeEnchainement->getNom();?></td>
-								<td><button><a href="<?php //echo base_url("ControllerAdmin/modifierTypeEnch");?>">Modifier</a></button></td>
+								<td><?php echo $type->getNom();?></td>
+								<td><button><a href="<?php echo base_url("ControllerAdmin/editTypeEnchainement?idTypeEnchainement=".$type->getIdTypeEnchainement());?>">Modifier</a></button></td>
 								<td><button><a href="">Supprimer</a></button></td>
 							</tr>
 						<?php } ?>

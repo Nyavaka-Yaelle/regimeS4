@@ -47,7 +47,7 @@
                 $TypeObjectif->setIdObjectif($row->idObjectif);
                 $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
                 $TypeObjectif->setNom($row->nom);
-                return = $TypeObjectif;
+                return  $TypeObjectif;
             }
             return null;
         }

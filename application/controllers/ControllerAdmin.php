@@ -23,6 +23,16 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'NewTypeEnchainement';
 		$this->load($data);
     }
+    public function editTypeEnchainement()
+    {
+        $data = array();
+        $idTypeEnchainement = $this->input->get("idTypeEnchainement");
+        $typeEnchainement = new TypeEnchainement($idTypeEnchainement,null);
+        $data['typeEnchainement'] = $typeEnchainement->getDonneById();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'editTypeEnchainement';
+		$this->load($data);
+    }
     public function insertNewTypeEnchainement()
     {
         $idTypeObjectif = $this->input->post("idTypeObjectif");
