@@ -133,5 +133,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-                $ActiviteEnchainement->setIdActiviteEnchainement($row->idActiviteEnchainement);
 $autoload['model'] = array('Utilisateur','Carte','CarteValider','Client','Enchainement','Objectif','Profiles','TypeObjectif','Regime','TypeEnchainement','Activite','ActiviteEnchainement','TypeSakafo','Sakafo');
