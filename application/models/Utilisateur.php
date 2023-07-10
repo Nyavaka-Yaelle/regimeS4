@@ -37,6 +37,20 @@
                 return "mot de passe non identique";
             }
         }
+        public function getTypeObjectif(){
+            $objectif = new Objectif($this->getObjectifUtilisateur()->getIdObjectif());
+            $objectif = $objectif->getDonneById();
+            $query = $this->db->where('idTypeObjectif',$objectif->getTypeObjectif());
+            $query = $this->db->get('TypeObjectif');
+            $TypeObjectif = new Objectif();
+            foreach ($query->result() as $row) {
+                $TypeObjectif->setIdObjectif($row->idObjectif);
+                $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $TypeObjectif->setNom($row->nom);
+                return = $TypeObjectif;
+            }
+            return null;
+        }
         public function getObjectifUtilisateur()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
