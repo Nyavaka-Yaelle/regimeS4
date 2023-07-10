@@ -2,12 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ControllerHome extends CI_Controller {
+	private $user;
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->session->userdata('idUtilisateur') != null){
-			redirect('ControllerFront/Index');
+			redirect('ControllerProfiles/Index');
 		}
 	}
 	public function Index()
@@ -32,7 +33,7 @@ class ControllerHome extends CI_Controller {
 	}
 	public function Deconnexion(){
 		$this->session->set_userdata('idUtilisateur',null);
-		redirect('');
+		redirect();
 	}
 	public function SingUp(){
 		$name = $this->input->post('name');

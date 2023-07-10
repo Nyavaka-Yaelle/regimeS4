@@ -49,38 +49,45 @@ class ControllerProfiles extends CI_Controller {
             $data['listTypeObjectifs'] = $typeObjectif->getDonne();
             $this->load->view('Profiles/SelectTypeObjectif',$data);
         }else {
-            $this->load->view('Profiles/Objectif');
+            redirect('ControllerFront/Index');
         }
     }
 	public function FillTypeObjectif()
 	{
-        $idTypeObjectif = $this->input->post('idTypeObjectif');
-		$this->session->set_userdata('idTypeObjectif',$idTypeObjectif);
-        $typeObjectif = new TypeObjectif();
-        $typeObjectif->setIdTypeObjectif($idTypeObjectif);
-        $typeObjectif = $typeObjectif->getDonneById();
-        $this->typeObjectif = $typeObjectif;
-        $data['listObjectif'] = $this->typeObjectif->getObjectif();
-        $this->load->view('Profiles/Objectif',$data);
+        if($this->input->post('idTypeObjectif') != null){
+            $idTypeObjectif = $this->input->post('idTypeObjectif');
+            $this->session->set_userdata('idTypeObjectif',$idTypeObjectif);
+            $typeObjectif = new TypeObjectif();
+            $typeObjectif->setIdTypeObjectif($idTypeObjectif);
+            $typeObjectif = $typeObjectif->getDonneById();
+            $this->typeObjectif = $typeObjectif;
+            $data['listObjectif'] = $this->typeObjectif->getObjectif();
+            $this->load->view('Profiles/Objectif',$data);
+        }else {
+            $this->TypeObjectif();
+        }
 	}
 	public function FillObjectif()
 	{
 		$idTypeObjectif = $this->session->userdata('idTypeObjectif'); 
-		$objectifs = $this->typeObjectif->getObjectif();
-		$results = array();
-		for($i=0; $i<count($objectifs); $i++)
-		{
-			$id = $this->input->post($i);
-            if ($id != null) {
-                $objectif = $this->Objectif()->getDonneById($id);
-			    $results[] = $objectif;
+        $typeObjectif = new TypeObjectif();
+        $typeObjectif->setIdTypeObjectif($idTypeObjectif);
+        $typeObjectif = $typeObjectif->getDonneById();
+
+        $checkedCheckboxes = $this->input->post('checkboxes');
+        if (!empty($checkedCheckboxes) && is_array($checkedCheckboxes)) {
+            $results = array();
+            foreach ($checkedCheckboxes as $checkbox) {
+                $id = $checkbox;
+                $objectif = new Objectif();
+                $objectif->setIdObjectif($id);
+                $objectif = $objectif->getDonneById();
+                $results[] = $objectif;
             }
-		}
-        if($results == null){
-            $this->FillObjectif();
-        }else{
             $this->user->insertObjectifUtilisateur($results);
-            redirect('index.php');
+            redirect('ControllerFront/Index');
+        } else {
+            $this->TypeObjectif();
         }
 	}
 }
