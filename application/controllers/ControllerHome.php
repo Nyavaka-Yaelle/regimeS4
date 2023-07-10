@@ -31,10 +31,6 @@ class ControllerHome extends CI_Controller {
 	public function Inscription(){
 		$this->load->view('Login/Inscription');
 	}
-	public function Deconnexion(){
-		$this->session->set_userdata('idUtilisateur',null);
-		redirect();
-	}
 	public function SingUp(){
 		$name = $this->input->post('name');
 		$email = $this->input->post('email');

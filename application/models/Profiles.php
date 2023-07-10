@@ -12,7 +12,7 @@
 
         public function getDonne()
         {
-            $query = $this->db->get('profiles');
+            $query = $this->db->get('Profiles');
             $results = array();
 
             foreach ($query->result() as $row) {

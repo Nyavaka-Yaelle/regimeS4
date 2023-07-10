@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary rounded submit p-3 px-5" name="inscription" >S'inscrire</button>
+                        <button type="submit" class="btn btn-primary rounded submit p-3 px-5" name="connection" >Se Connecter</button>
                     </div>
                 </form>
 	        </div>

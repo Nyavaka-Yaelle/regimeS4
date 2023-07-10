@@ -12,12 +12,12 @@
                 'idTypeEnchainement' => $this->getIdTypeEnchainement(),
                 'nom' => $this->getNom()
             );
-            $this->db->insert('typeEnchainement', $data);
+            $this->db->insert('TypeEnchainement', $data);
             return $this->db->insert_id();
         }
         public function getDonne()
         {
-            $query = $this->db->get('typeEnchainement');
+            $query = $this->db->get('TypeEnchainement');
             $results = array();
 
             foreach ($query->result() as $row) {
