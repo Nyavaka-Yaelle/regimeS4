@@ -13,7 +13,6 @@
         <div data-aos="fade-up" data-aos-duration="850" data-aos-delay="150" class="form-container">
             <div id="img_login" class="image-holder">
             </div>
-
             <form method="POST" action="<?php echo base_url("ControllerHome/Login") ?>">
                 <h2 class="text-center">
                     <strong>LOGIN</strong>
