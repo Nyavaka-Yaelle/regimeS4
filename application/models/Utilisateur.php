@@ -37,6 +37,19 @@
                 return "mot de passe non identique";
             }
         }
+        public function getObjectifUtilisateur()
+        {
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
+            $query = $this->db->get('ObjectifUtilisateur');
+            foreach ($query->result() as $row) {
+                $ObjectifUtilisateur = new ObjectifUtilisateur();
+                $ObjectifUtilisateur->setIdObjectifUtilisateur($row->idObjectifUtilisateur);
+                $ObjectifUtilisateur->setIdUtilisateur($row->idUtilisateur);
+                $ObjectifUtilisateur->setIdObjectif($row->idObjectif);
+                return $ObjectifUtilisateur;
+            }
+            return null;
+        }
         public function getProfile()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
@@ -44,12 +57,14 @@
             $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
                 
-                $Utilisateur->setIdUtilisateur($row->idUtilisateur);
-                $Utilisateur->setNom($row->nom);
-                $Utilisateur->setEmail($row->email);
-                $Utilisateur->setMotDePasse($row->motDePasse);
-                $Utilisateur->setIdentification($row->identification);
-                return $Utilisateur;
+                $Profiles = new Profiles();
+                $Profiles->setIdProfiles($row->idProfiles);
+                $Profiles->setIdUtilisateur($row->idUtilisateur);
+                $Profiles->setGenre($row->genre);
+                $Profiles->setTaille($row->taille);
+                $Profiles->setPoids($row->poids);
+                $Profiles->setDateNaissance($row->dateNaissance);
+                return $Profiles;
             }
             return null;
         }
@@ -123,7 +138,7 @@
             $this->motDePasse = $motDePasse;
             $this->identification = $identification;
         }
-        public function getIdUtilisateur((){
+        public function getIdUtilisateur(){
             return $this->idUtilisateur;
         }
         public function setIdUtilisateur($idUtilisateur){
