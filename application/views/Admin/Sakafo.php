@@ -9,6 +9,7 @@
 							<th>Nom sakafo</th>
 							<th>Prix</th>
 							<th> </th>
+							<th> </th>
 						</tr>
 					</thead>
 					<tbody>
@@ -18,6 +19,7 @@
 								<td><?php echo $sakafo->getNom();?></td>
 								<td class="right"><?php echo $this->Formater->format($sakafo->getPrix());?> Ar</td>
 								<td><button><a href="<?php echo base_url("ControllerAdmin/modifierSakafo?idSakafo=".$sakafo->getIdSakafo())?>">Modifier</a></button></td>
+								<td><button><a href="">Supprimer</a></button></td>
 							</tr>
 						<?php } ?>
 					</tbody>

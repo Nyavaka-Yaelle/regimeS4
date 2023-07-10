@@ -12,7 +12,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($listeSakafo as $sakafo){ ?>
+						<?php foreach($listeEnchainement as $enchainement){ ?>
 							<tr>
 								<td><?php echo $sakafo->getTypeSakafo()->getNom();?></td>
 								<td><?php echo $sakafo->getNom();?></td>
