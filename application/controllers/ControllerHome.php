@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControllerHome extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
+		if($this->session->utilisateurdata('idUtilisateur') == null){
+			$this->load->view('Login/Index');
+		}
 	}
 	public function Index()
 	{
