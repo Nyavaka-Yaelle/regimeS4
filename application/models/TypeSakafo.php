@@ -5,12 +5,14 @@
     {
         private $idTypeSakafo;
         private $nom;
+        private $idTypeObjectif;
 
         public function insertDonne()
         {
             $data = array(
                 'idTypeSakafo' => $this->getIdTypeSakafo(),
-                'nom' => $this->getNom()
+                'nom' => $this->getNom(),
+                'idTypeObjectif' => $this->getIdTypeObjectif(),
             );
             $this->db->insert('TypeSakafo', $data);
             return $this->db->insert_id();
@@ -24,14 +26,16 @@
                 $TypeSakafo = new TypeSakafo();
                 $TypeSakafo->setIdTypeSakafo($row->idTypeSakafo);
                 $TypeSakafo->setNom($row->nom);
+                $TypeSakafo->setIdTypeObjectif($row->idTypeObjectif);
                 $results[] = $TypeSakafo;
             }
             return $results;
         }
 
-        public function __construct($idTypeSakafo = null, $nom = null){
+        public function __construct($idTypeSakafo = null, $nom = null, $idTypeObjectif = null){
             $this->setIdTypeSakafo($idTypeSakafo);
             $this->setNom($nom);
+            $this->setIdTypeObjectif($idTypeObjectif);
         }
         public function setIdTypeSakafo($idTypeSakafo){
             $this->idTypeSakafo = $idTypeSakafo;
@@ -44,6 +48,12 @@
         }
         public function getNom(){
             return $this->nom;
+        }
+        public function setIdTypeObjectif($idTypeObjectif){
+            $this->idTypeObjectif = $idTypeObjectif;
+        }
+        public function getIdTypeObjectif(){
+            return $this->idTypeObjectif;
         }
     }
 ?>
