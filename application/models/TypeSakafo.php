@@ -42,9 +42,9 @@
                 $TypeSakafo->setIdTypeSakafo($row->idTypeSakafo);
                 $TypeSakafo->setNom($row->nom);
                 $TypeSakafo->setIdTypeObjectif($row->idTypeObjectif);
-                $results[] = $TypeSakafo;
+                return $TypeSakafo;
             }
-            return $results;
+            return null;
         }
         public function __construct($idTypeSakafo = null, $nom = null, $idTypeObjectif = null){
             $this->setIdTypeSakafo($idTypeSakafo);

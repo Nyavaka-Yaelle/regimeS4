@@ -9,7 +9,12 @@ class ControllerAdmin extends CI_Controller {
 	{
         $data = array();
         $data['listeSakafo'] = $this->Sakafo->getDonne();
-		$this->load->view('Regime/Index',$data);
+		$this->load->view('Admin/Index',$data);
 	}
+    public function content()
+    {
+        $action = $this->input->get('action');
+        // if() 
+    }
 	
 }

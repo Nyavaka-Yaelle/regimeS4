@@ -94,6 +94,9 @@
 		position: fixed;
 		width:100vw;
     }
+	.right{
+		text-align:right;
+	}
     @media (max-width: 768px) {
         .header {
             padding: 10px;
@@ -117,10 +120,10 @@
 	</header>
 	<nav class="navbar">
 		<ul>
-			<li><a href="#">Accueil</a></li>
-			<li><a href="#">À propos</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=1")?>">Type Sakafo</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=11")?>">Sakafo</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=2")?>">Type Enchainement</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=21")?>">Enchainement</a></li>
 		</ul>
 	</nav>
 	<div class="content">
@@ -133,14 +136,16 @@
 							<th>Type Sakafo</th>
 							<th>Nom sakafo</th>
 							<th>Prix</th>
+							<th> </th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach($listeSakafo as $sakafo){ ?>
 							<tr>
-								<td>Donnée 1</td>
-								<td>Donnée 2</td>
-								<td>Donnée 3</td>
+								<td><?php echo $sakafo->getTypeSakafo()->getNom();?></td>
+								<td><?php echo $sakafo->getNom();?></td>
+								<td class="right"><?php echo $this->Formater->format($sakafo->getPrix());?> Ar</td>
+								<td><button><a href="<?php echo base_url("ControllerAdmin/modifierSakafo?idSakafo=".$sakafo->getIdSakafo())?>">Modifier</a></button></td>
 							</tr>
 						<?php } ?>
 					</tbody>

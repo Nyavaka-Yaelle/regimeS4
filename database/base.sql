@@ -104,12 +104,13 @@ insert into Sakafo(idTypeSakafo,nom,prix) values
 
 create table TypeEnchainement(
     `idTypeEnchainement` integer primary key auto_increment,
-    `nom` varchar(100) unique not null
+    `nom` varchar(100) unique not null;
+    `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
-insert into TypeEnchainement(nom) values
-    ('Perdre du poids'),
-    ('Gagner du poids'),
-    ('Se muscler');
+insert into TypeEnchainement(nom, idTypeObjectif) values
+    ('Perdre du poids',1),
+    ('Gagner du poids',2),
+    ('Se muscler',3);
 
 create table Enchainement(
     `idEnchainement` integer primary key auto_increment,
