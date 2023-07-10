@@ -46,7 +46,7 @@ class ControllerProfiles extends CI_Controller {
     public function TypeObjectif(){
         if($this->user->getObjectifUtilisateur() == null){
             $typeObjectif = new TypeObjectif();
-            $data['listTypeObjectif'] = $typeObjectif->getDonne();
+            $data['listTypeObjectifs'] = $typeObjectif->getDonne();
             $this->load->view('Profiles/SelectTypeObjectif',$data);
         }else {
             $this->load->view('Profiles/Objectif');

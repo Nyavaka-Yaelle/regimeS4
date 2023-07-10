@@ -24,33 +24,18 @@
 		      	<h3 class="text-center mb-4">Objectif
 				</h3>
 						<form action="<?php echo base_url("ControllerProfiles/FillTypeObjectif") ?>" method="post" class="login-form">
+						<?php foreach($listTypeObjectifs as $listTypeObjectif) { ?>
+
 							<div class="form-group d-md-flex">
 								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Perdre du poids
-												  <input type="radio" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
+									<label class="checkbox-wrap checkbox-primary"><?php echo $listTypeObjectif->getNom();?>
+									<?php echo $listTypeObjectif->getIdTypeObjectif();?>
+										<input type="radio" name="objectif" checked value="<?php echo $listTypeObjectif->getIdTypeObjectif();?>">
+										<span class="checkmark"></span>
+									</label>
+								</div>
 							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Gagner du poids
-												  <input type="radio" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Me muscler
-												  <input type="radio" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
+						<?php } ?>
 	            <div class="form-group">
 	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Continuer</button>
 	            </div>
