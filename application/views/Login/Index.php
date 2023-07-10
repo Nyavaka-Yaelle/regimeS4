@@ -22,7 +22,7 @@
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
 		      	<h3 class="text-center mb-4">Don't Have an account?</h3>
-                <form action="<?php echo base_url("ControllerHome/Login") ?>" class="login-form">
+                <form action="<?php echo base_url("ControllerHome/Login") ?>" method="post" class="login-form">
                     <div class="form-group">
                         <input type="text" class="form-control rounded-left" placeholder="E-Mail" name="email" required>
                     </div>

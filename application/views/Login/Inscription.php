@@ -22,7 +22,7 @@
 		      		<span class="fa fa-user-o"></span>
 		      	</div>
 		      	<h3 class="text-center mb-4">Don't Have an account?</h3>
-						<form action="<?php echo base_url("ControllerHome/SingUp") ?>" class="login-form">
+						<form action="<?php echo base_url("ControllerHome/SingUp") ?>" method="post" class="login-form">
 		      		<div class="form-group">
 		      			<input type="text" class="form-control rounded-left" placeholder="Username" name="name"  required>
 		      		</div>
