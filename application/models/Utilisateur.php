@@ -40,7 +40,7 @@
         public function getProfile()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
-            $query = $this->db->get('Profile');
+            $query = $this->db->get('Profiles');
             $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
                 
