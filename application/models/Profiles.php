@@ -53,7 +53,7 @@
         public function getIdProfiles(){
             return $this->idProfiles;
         }
-        public function setIdUtilisateur($idProfiles){
+        public function setIdProfiles($idProfiles){
             $this->idProfiles = $idProfiles;
         }
         public function getIdUtilisateur(){
