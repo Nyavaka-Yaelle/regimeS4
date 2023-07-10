@@ -7,7 +7,7 @@ class ControllerHome extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->session->userdata('idUtilisateur') != null){
-			// $this->Index();
+			redirect('ControllerProfiles/Index');
 		}
 	}
 	public function Index()
@@ -22,7 +22,7 @@ class ControllerHome extends CI_Controller {
 		$utilisateur = $utilisateur->login();
 		if($utilisateur != null){
 			$this->session->set_userdata('idUtilisateur',$utilisateur->getIdUtilisateur());
-			redirect('ControllerProfiles/index');
+			redirect('ControllerProfiles/Index');
 		}else{
 			$this->load->view('Login/Index');
 		}
@@ -47,7 +47,7 @@ class ControllerHome extends CI_Controller {
 			if($this->session->userdata('idUtilisateur') == null){
 				$this->load->view('Login/Index');
 			}else{
-				redirect('');
+				redirect('ControllerProfiles/Index');
 			}
 		}else{
 			$this->load->view('Login/Inscription');
