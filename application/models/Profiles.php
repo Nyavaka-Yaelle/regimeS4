@@ -75,7 +75,7 @@
             return $this->taille;
         }
         public function setTaille($taille){
-            if($taille>0 && $taille<5)
+            if($taille>0 && $taille<500)
             {
                 $this->taille = $taille;
             }

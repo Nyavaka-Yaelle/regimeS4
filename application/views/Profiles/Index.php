@@ -22,17 +22,17 @@
 						<span class="fa fa-user-o"></span>
 					</div>
 					<h3 class="text-center mb-4">Profil</h3>
-						<form action="<?php echo base_url("ControllerProfiles/Login") ?>" class="login-form">
+						<form action="<?php echo base_url("ControllerProfiles/FillProfiles") ?>" class="login-form" method="post">
 							<div class="form-group d-md-flex">
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary">Male
-										<input type="radio" name="genre" checked>
+										<input type="radio" name="genre" checked  value="1">
 										<span class="checkmark"></span>
 									</label>
 								</div>
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary">Female
-										<input type="radio" name="genre">
+										<input type="radio" name="genre" value="0">
 										<span class="checkmark"></span>
 									</label>
 								</div>
