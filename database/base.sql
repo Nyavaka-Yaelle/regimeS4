@@ -68,27 +68,6 @@ create table TypeSakafo(
     `nom` varchar(100) not null,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
-
-insert into TypeSakafo(nom,idTypeObjectif) values
-('Salade de poulet grillé',1),
-('Saumon poché avec légumes vapeur',1),
-('Wrap aux légumes',1),
-('Omelette aux légumes',1),
-('Salade de quinoa aux légumes',1);
-
-insert into TypeSakafo(nom,idTypeObjectif) values
-('Smoothie protéiné',2),
-('Avocat sur du pain complet ',2),
-('Pâtes avec sauce au fromage',2),
-('Beurre de cacahuète sur des crackers',2),
-('Poisson grillé avec quinoa',2);
-
-insert into TypeSakafo(nom,idTypeObjectif) values
-('',3),
-('',3),
-('',3),
-('',3),
-('',3);
 create table Sakafo(
     `idSakafo` integer primary key auto_increment,
     `idTypeSakafo` integer references TypeSakafo(idTypeSakafo),

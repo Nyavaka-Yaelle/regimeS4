@@ -9,6 +9,13 @@
             $profiles = new Profiles(null,$this->getIdUtilisateur(),$genre,$taille,$poids,$dateDeNaissance);
             $profiles->insertDonnee();
         }
+        public function insertObjectifUtilisateur($listObjectif){
+            foreach ($listObjectif as $objectif) {
+                $id = $objectif->insertDonne();
+                $ObjectifUtilisateur = new ObjectifUtilisateur(null,$this->idUtilisateur,$id);
+                $this->insertDonne();
+            }
+        }
         public function getDonne()
         {
             $this->db->where('idUtilisateur', $this->getIdUtilisateur());

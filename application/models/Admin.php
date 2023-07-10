@@ -15,5 +15,12 @@
                 $CarteValider->insertDonne();
             }
         }
+        public function genererNouveauCode($montant)
+        {
+            $lettres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'; 
+            $longueur = 14; 
+            $code = substr(str_shuffle($lettres),0, $longueur);
+            return new Carte(null,$code,$montant);
+        }
     }
 ?>
