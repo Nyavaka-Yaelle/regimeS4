@@ -68,12 +68,39 @@ create table TypeSakafo(
     `nom` varchar(100) not null,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
+insert into TypeSakafo(nom,idTypeObjectif) values
+('Repas riche en légumes',1),
+('Repas riche en calories',2),
+('Repas riche en protéines',3);
+
 create table Sakafo(
     `idSakafo` integer primary key auto_increment,
     `idTypeSakafo` integer references TypeSakafo(idTypeSakafo),
     `nom` varchar(100) not null,
     `prix` double precision not null
 );
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(1,'Salade de poulet grillé',6000),
+(1,'Saumon poché avec légumes vapeur',10000),
+(1,'Wrap aux légumes',4000),
+(1,'Omelette aux légumes',3000),
+(1,'Salade de quinoa aux légumes',5000);
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(2,'Smoothie protéiné',3000),
+(2,'Avocat sur du pain complet',4000),
+(2,'Pâtes avec sauce au fromage',10000),
+(2,'Beurre de cacahuète sur des crackers',5000),
+(2,'Poisson grillé avec quinoa',6000);
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(3,'Poulet grillé avec patates douces',10000),
+(3,'Bowl de quinoa et légumes avec tofu',9000),
+(3,'Steak de boeuf avec riz complet',5000),
+(3,'Omelette avec avocat',3000),
+(3,'Smoothie protéiné aux fruits et aux noix',4000);
+
 create table Regime(
     `idRegime` integer primary key auto_increment,
     `idUtilisateur` integer references Utilisateur(idUtilisateur),
