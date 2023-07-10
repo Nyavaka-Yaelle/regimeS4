@@ -19,6 +19,22 @@
         }
         public function getDonne()
         {
+
+            $query = $this->db->get('Objectif');
+            $results = array();
+
+            foreach ($query->result() as $row) {
+                $typeObjectif = new Objectif();
+                $typeObjectif->setIdObjectif($row->idObjectif);
+                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $typeObjectif->setNom($row->nom);
+                $results[] = $typeObjectif;
+            }
+            return $results;
+        }
+        public function getDonneById()
+        {
+            $query = $this->db->where('idObjectif', $this->getIdObjectif());
             $query = $this->db->get('Objectif');
             $results = array();
 

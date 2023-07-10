@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?php base_url() ?>/assets/css/style.css">
 
 	</head>
 	<body>
@@ -24,8 +24,7 @@
 		      	</div>
 		      	<h3 class="text-center mb-4">Objectif
 				</h3>
-						<form action="typeObjectif.html" class="login-form">
-
+						<form action="<?php echo base_url("ControllerProfiles/FillTypeObjectif") ?>" method="post" class="login-form">
 							<div class="form-group d-md-flex">
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary">Perdre du poids
@@ -64,11 +63,10 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="<?php base_url() ?>/assets/js/jquery.min.js"></script>
+  <script src="<?php base_url() ?>/assets/js/popper.js"></script>
+  <script src="<?php base_url() ?>/assets/js/bootstrap.min.js"></script>
+  <script src="<?php base_url() ?>/assets/js/main.js"></script>
 
 	</body>
 </html>
-

@@ -41,6 +41,7 @@ insert into Objectif(idTypeObjectif,nom) values
     (1,'Haut du corps et poitrine');
 
 insert into Objectif(idTypeObjectif,nom) values
+    (2,'Gain de poids globale'),
     (2,'Ventre et taille+'),
     (2,'Cuisses et fessiers+'),
     (2,'Bras et epaules+'),
