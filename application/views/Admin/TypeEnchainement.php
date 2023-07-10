@@ -16,7 +16,7 @@
 						<?php foreach($listeTypeEnchainement as $typeEnchainement){ ?>
 							<tr>
 								<td><?php echo $typeEnchainement->getNom();?></td>
-								<td><button><a href="">Modifier</a></button></td>
+								<td><button><a href="<?php //echo base_url("ControllerAdmin/modifierTypeEnch");?>">Modifier</a></button></td>
 								<td><button><a href="">Supprimer</a></button></td>
 							</tr>
 						<?php } ?>

@@ -6,7 +6,6 @@
         private $idTypeEnchainement;
         private $nom;
         private $idTypeObjectif;
-
         public function insertDonne()
         {
             $data = array(
