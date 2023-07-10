@@ -23,11 +23,11 @@
             $results = array();
 
             foreach ($query->result() as $row) {
-                $typeObjectf = new Objectif();
-                $typeObjectf->setIdObjectif($row->idObjectif);
-                $typeObjectf->setIdTypeObjectif($row->idTypeObjectif);
-                $typeObjectf->setNom($row->nom);
-                $results[] = $typeObjectf;
+                $typeObjectif = new Objectif();
+                $typeObjectif->setIdObjectif($row->idObjectif);
+                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $typeObjectif->setNom($row->nom);
+                $results[] = $typeObjectif;
             }
             return $results;
         }
