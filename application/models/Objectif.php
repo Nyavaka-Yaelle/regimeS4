@@ -36,16 +36,15 @@
         {
             $query = $this->db->where('idObjectif', $this->getIdObjectif());
             $query = $this->db->get('Objectif');
-            $results = array();
 
             foreach ($query->result() as $row) {
                 $typeObjectif = new Objectif();
                 $typeObjectif->setIdObjectif($row->idObjectif);
                 $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
                 $typeObjectif->setNom($row->nom);
-                $results[] = $typeObjectif;
+                return $typeObjectif;
             }
-            return $results;
+            return null;
         }
 
         public function __construct($idObjectif = null, $idTypeObjectif = null, $nom = null){
