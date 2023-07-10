@@ -25,72 +25,18 @@
 		      	<h3 class="text-center mb-4">Objectif
 				</h3>
 						<form action="<?php echo base_url("ControllerProfiles/FillObjectif") ?>"  method="post" class="login-form">
-
-							<div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Globale
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Ventre et taille
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Cuisses et fessiers
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Bras et épaules
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Dos et posture
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Jambes et mollets
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
-                            <div class="form-group d-md-flex">
-								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Haut du corps et poitrine
-												  <input type="checkbox" name="objectif">
-												  <span class="checkmark"></span>
-												</label>
-											</div>
-							</div>
-
+                            <?php foreach ($listObjectif as $objecif) {?>
+                                
                             
-
+							<div class="form-group d-md-flex">
+                                <div class="w-50">
+                                    <label class="checkbox-wrap checkbox-primary"><?php echo $objecif->getNom() ?>
+                                        <input type="checkbox" name="<?php echo $objecif->getIdObjectif() ?>" value="<?php echo $objecif->getIdObjectif() ?>">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+							</div>
+                        <?php } ?>
 	            <div class="form-group">
 	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Continuer</button>
 	            </div>
