@@ -41,7 +41,7 @@
         $this->setIdCarteValider($idCarteValider);
         $this->setIdCarte($idCarte);
         $this->setDateValidation($dateValidation);
-        $this->setMontant($idUtilisateur);
+        $this->setIdUtilisateur($idUtilisateur);
     }
     public function getIdCarteValider(){
         return $this->idCarteValider;
