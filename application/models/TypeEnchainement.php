@@ -6,19 +6,6 @@
         private $idTypeEnchainement;
         private $nom;
 
-        public function getEnchainement(){
-            $query = $this->db->where('idTypeEnchainement', $this->getIdTypeEnchainement());
-            $query = $this->db->get('Enchainement');
-            $results = array();
-            foreach ($query->result() as $row) {
-                $typeObjectf = new Enchainement();
-                $typeObjectf->setIdEnchainement($row->idEnchainement);
-                $typeObjectf->setIdTypeEnchainement($row->idTypeEnchainement);
-                $typeObjectf->setNom($row->nom);
-                $results[] = $typeObjectf;
-            }
-            return $results;
-        }
         public function insertDonne()
         {
             $data = array(

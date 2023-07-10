@@ -133,4 +133,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Utilisateur','Carte','CarteValider','Client','Enchainement','Objectif','Profiles','TypeObjectif','Regime','TypeEnchainement');
+$autoload['model'] = array('Utilisateur','Carte','CarteValider','Client','Enchainement','Objectif','Profiles','TypeObjectif','Regime','TypeEnchainement','Activite');
