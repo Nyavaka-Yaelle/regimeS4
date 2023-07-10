@@ -83,6 +83,7 @@ create table CarteValider(
     `dateValidation` date not null,
     `idUtilisateur` integer references Utilisateur(idUtilisateur)
 );
+
 create or replace view v_ActiviteEnchainement as (
     select * from ActiviteEnchainement ae join Activite a on 
 );
