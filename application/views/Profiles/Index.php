@@ -26,7 +26,7 @@
 							<div class="form-group d-md-flex">
 								<div class="w-50">
 									<label class="checkbox-wrap checkbox-primary">Male
-										<input type="radio" name="genre">
+										<input type="radio" name="genre" checked>
 										<span class="checkmark"></span>
 									</label>
 								</div>
@@ -43,7 +43,7 @@
 							</div>
 							<div class="form-group">
 								<p>Votre poids : </p>
-                                <input type="text" class="form-control rounded-left" placeholder="Centimetres" name="poids" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numeric value" required>
+                                <input type="text" class="form-control rounded-left" placeholder="Kilogrammes" name="poids" pattern="[0-9]+(\.[0-9]+)?" title="Please enter a numeric value" required>
 							</div>
 							<div class="form-group">
 								<p>Votre date de naissances : </p>
