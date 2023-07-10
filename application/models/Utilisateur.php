@@ -39,7 +39,7 @@
         }
         public function getProfile()
         {
-            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
             $query = $this->db->get('Profiles');
             $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
@@ -55,7 +55,7 @@
         }
         public function getUtilisateur()
         {
-            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
             $query = $this->db->get('utilisateur');
             $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
@@ -105,7 +105,7 @@
         public function insertDonne()
         {
             $data = array(
-                'idUtilisateur' => $this->getIdUtilisateur(),
+                'idUtilisateur' => $this->getIdUtilisateur((),
                 'nom' => $this->getNom(),
                 'email' => $this->getEmail(),
                 'motDePasse' => $this->getMotDePasse(),
@@ -123,7 +123,7 @@
             $this->motDePasse = $motDePasse;
             $this->identification = $identification;
         }
-        public function getIdUtilisateur(){
+        public function getIdUtilisateur((){
             return $this->idUtilisateur;
         }
         public function setIdUtilisateur($idUtilisateur){
