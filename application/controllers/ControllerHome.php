@@ -6,7 +6,7 @@ class ControllerHome extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('url');
-		if($this->session->userdata('idUtilisateur') == null){
+		if($this->session->userdata('idUtilisateur') != null){
 			// $this->Index();
 		}
 	}
@@ -22,7 +22,7 @@ class ControllerHome extends CI_Controller {
 		$utilisateur = $utilisateur->login();
 		if($utilisateur != null){
 			$this->session->set_userdata('idUtilisateur',$utilisateur->getIdUtilisateur());
-			redirect('');
+			$this->Index(); 
 		}else{
 			$this->load->view('Login/Index');
 		}
