@@ -120,10 +120,10 @@
 	</header>
 	<nav class="navbar">
 		<ul>
-			<li><a href="#">Type Sakafo</a></li>
-			<li><a href="#">Sakafo</a></li>
-			<li><a href="#">Type Enchainement</a></li>
-			<li><a href="#">Enchainement</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=1")?>">Type Sakafo</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=11")?>">Sakafo</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=2")?>">Type Enchainement</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=21")?>">Enchainement</a></li>
 		</ul>
 	</nav>
 	<div class="content">
@@ -145,7 +145,7 @@
 								<td><?php echo $sakafo->getTypeSakafo()->getNom();?></td>
 								<td><?php echo $sakafo->getNom();?></td>
 								<td class="right"><?php echo $this->Formater->format($sakafo->getPrix());?> Ar</td>
-								<td><input type="button" value="Modifier"></td>
+								<td><button><a href="<?php echo base_url("ControllerAdmin/modifierSakafo?idSakafo=".$sakafo->getIdSakafo())?>">Modifier</a></button></td>
 							</tr>
 						<?php } ?>
 					</tbody>
