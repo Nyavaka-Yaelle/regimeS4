@@ -37,6 +37,22 @@
                 return "mot de passe non identique";
             }
         }
+        public function getProfile()
+        {
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
+            $query = $this->db->get('Profile');
+            $Utilisateur = new Utilisateur();
+            foreach ($query->result() as $row) {
+                
+                $Utilisateur->setIdUtilisateur($row->idUtilisateur);
+                $Utilisateur->setNom($row->nom);
+                $Utilisateur->setEmail($row->email);
+                $Utilisateur->setMotDePasse($row->motDePasse);
+                $Utilisateur->setIdentification($row->identification);
+                return $Utilisateur;
+            }
+            return null;
+        }
         public function getUtilisateur()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
