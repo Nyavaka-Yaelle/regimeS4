@@ -52,15 +52,15 @@ class ControllerAdmin extends CI_Controller {
         } 
         else if($action==11)
         {
-            Sthis->TypeSakafo();
+            $this->TypeSakafo();
         }
         else if($action==2)
         {
-            Sthis->TypeEnchainement();
+            $this->TypeEnchainement();
         }
         else if($action==21)
         {
-            Sthis->Enchainement();
+            $this->Enchainement();
         }
     }
 	
