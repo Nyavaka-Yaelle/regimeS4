@@ -43,12 +43,12 @@
     }
 
     public function __construct($idProfiles = null, $idUtilisateur = null, $genre = null, $taille = null, $poids = null, $dateNaissance = null){
-        $this->idProfiles = $idProfiles;
-        $this->idUtilisateur = $idUtilisateur;
-        $this->genre = $genre;
-        $this->taille = $taille;
-        $this->poids = $poids;
-        $this->dateNaissance = $dateNaissance;
+        $this->setIdProfiles( $idProfiles);
+        $this->setIdUtilisateur($idUtilisateur);
+        $this->setGenre($genre);
+        $this->setTaille($taille);
+        $this->setPoids($poids);
+        $this->setDateNaissance( $dateNaissance);
     }
     public function getIdProfiles(){
         return $this->idProfiles;
