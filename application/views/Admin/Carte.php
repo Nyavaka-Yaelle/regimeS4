@@ -1,23 +1,22 @@
 	<div class="content">
 		<section class="ftco-section">
 			<div class="container">
-			<h3><b>Liste Type Sakafo</b></h3>
-			<div><button><a href="">Ajouter Nouveau</a></button></div>
+				<h3><b>Liste Carte</b></h3>
 				<hr>
 				<table>
 					<thead>
 						<tr>
-							<th>Nom Type Sakafo</th>
-							<th>Type Objectif</th>
+							<th>Code Carte</th>
+							<th>Montant</th>
 							<th> </th>
 							<th> </th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($listeTypeSakafo as $typeSakafo){ ?>
+						<?php foreach($listeCarte as $carte){ ?>
 							<tr>
-								<td><?php echo $typeSakafo->getNom();?></td>
-								<td><?php echo $typeSakafo->getTypeObjectif()->getNom();?></td>
+								<td><?php echo $carte->getCode();?></td>
+								<td><?php echo $montant->getMontant();?></td>
 								<td><button><a href="">Modifier</a></button></td>
 								<td><button><a href="">Supprimer</a></button></td>
 							</tr>

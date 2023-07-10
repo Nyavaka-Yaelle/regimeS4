@@ -9,6 +9,14 @@ class ControllerAdmin extends CI_Controller {
 	{
         redirect("ControllerAdmin/Sakafo");
     }
+    public function Carte()
+	{
+        $data = array();
+        $data['listeCarteValider'] = $this->CarteValider->getDonne();
+        $data['listeCarte'] = $this->Carte->getDonne();
+        $data['content'] = 'Carte';
+		$this->load($data);
+	}
 	public function Sakafo()
 	{
         $data = array();
@@ -61,6 +69,10 @@ class ControllerAdmin extends CI_Controller {
         else if($action==21)
         {
             $this->Enchainement();
+        }
+        else if($action==3)
+        {
+            $this->Carte();
         }
     }
 	
