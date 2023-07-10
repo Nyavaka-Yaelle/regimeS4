@@ -1,56 +1,64 @@
-<!DOCTYPE html>
-<html class="text-center" lang="en" style="height: 797px;">
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 08</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/Login.css">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body id="body_inscription">
-    <section class="register-photo">
-        <div data-aos="fade-up" data-aos-duration="850" data-aos-delay="150" class="form-container">
-            <div id="img_inscription" class="image-holder">
-            </div>
-            <form method="POST" action="<?php echo base_url("ControllerHome/SingUp") ?>" >
-                <h2 class="text-center">
-                    <strong>INSCRIPTION</strong>
-                </h2>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-                <div class="mb-3">
-                    <label for="">Nom</label>
-                    <input class="form-control" type="text" name="name" placeholder="Nom" required>
-                </div>
-                <div class="mb-3"></div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
 
-                <div class="mb-3">
-                    <label for="">Email</label>
-                    <input class="form-control" type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="mb-3"></div>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+		      	<div class="icon d-flex align-items-center justify-content-center">
+		      		<span class="fa fa-user-o"></span>
+		      	</div>
+		      	<h3 class="text-center mb-4">Don't Have an account?</h3>
+						<form action="<?php echo base_url("ControllerHome/SingUp") ?>" class="login-form">
+		      		<div class="form-group">
+		      			<input type="text" class="form-control rounded-left" placeholder="Username" name="name"  required>
+		      		</div>
 
-                <div class="mb-3">
-                    <label for="">Mot de passe</label>
+					  <div class="form-group">
+						<input type="text" class="form-control rounded-left" placeholder="E-Mail" name="email" required>
+					</div>
 
-                    <input class="form-control" type="password" name="password" placeholder="Mot de passe" required>
-                </div>
-                <div class="mb-3"></div>
 
-                <div class="mb-3">
-                    <label for="">Confirmaton</label>
+	            <div class="form-group d-flex">
+	              <input type="password" class="form-control rounded-left" placeholder="Password" name="password" required>
+	            </div>
 
-                    <input class="form-control" type="password" name="password2" placeholder="Confirmation Mot de passe" required>
-                </div>
+                <div class="form-group d-flex">
+	              <input type="password" class="form-control rounded-left" placeholder="Confirm Password" name="password2" required>
+	            </div>
+	            <div class="form-group d-md-flex">
+                    <div class="w-50 text-md-right">
+                        <a href="<?php echo base_url("ControllerHome/Index") ?>">J'ai déja un compte</a>
+                    </div>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5" name="inscription" >S'inscrire</button>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                <div class="mb-3"></div>
-                <div class="mb-3">
-                    <button class="btn btn-primary d-block w-100" type="submit" name="inscription">S'inscrire</button>
-                </div>
-                <a class="already" href="<?php echo base_url("ControllerHome/Index") ?>">Login</a>
-            </form>
+	<script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/popper.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/main.js"></script>
 
-        </div>
-    </section>
-</body>
-
+	</body>
 </html>
+
