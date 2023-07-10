@@ -58,10 +58,16 @@ create table Enchainement(
 );
 create table Activite(
     `idActivite` integer primary key auto_increment,
+    `nom` varchar(100) 
+);
+create table ActiviteEnchainement(
+    `idActiviteEnchainement` integer primary key auto_increment,
+    `idActivite` integer references Activite(idActivite),
     `idEnchainement` integer references Enchainement(idEnchainement)
 );
 create table RegimeJournalier(
-    `idRegime` integer primary key auto_increment,
+    `idRegimeJournalier` integer primary key auto_increment,
+    `idRegime` integer references Regime(idRegime),
     `numeroJour` integer not null,
     `idSakafo` integer references Sakafo(idSakafo),
     `idActivite` integer references Activite(idActivite)
@@ -76,4 +82,7 @@ create table CarteValider(
     `idCarte` integer references Carte(idCarte),
     `dateValidation` date not null,
     `idUtilisateur` integer references Utilisateur(idUtilisateur)
+);
+create or replace view v_ActiviteEnchainement as (
+    select * from ActiviteEnchainement ae join Activite a on 
 );
