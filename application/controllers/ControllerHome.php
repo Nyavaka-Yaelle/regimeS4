@@ -7,7 +7,7 @@ class ControllerHome extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->session->userdata('idUtilisateur') != null){
-			redirect('ControllerProfiles/Index');
+			redirect('ControllerFront/Index');
 		}
 	}
 	public function Index()

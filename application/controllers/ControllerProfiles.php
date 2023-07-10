@@ -9,7 +9,7 @@ class ControllerProfiles extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('url');
 		if($this->session->userdata('idUtilisateur') == null) {
-			redirect('ControllerHome/Login');
+			redirect('ControllerHome/Index');
 		} else {
             $idUser = $this->session->userdata('idUtilisateur');
             $this->user = new Client();
@@ -70,14 +70,18 @@ class ControllerProfiles extends CI_Controller {
 		$results = array();
 		for($i=0; $i<count($objectifs); $i++)
 		{
-			$id = $this->input->post('objectif'.$i);
+			$id = $this->input->post($i);
             if ($id != null) {
                 $objectif = $this->Objectif()->getDonneById($id);
 			    $results[] = $objectif;
             }
 		}
-        $this->user->insertObjectifUtilisateur($results);
-        redirect('index.php');
+        if($results == null){
+            $this->FillObjectif();
+        }else{
+            $this->user->insertObjectifUtilisateur($results);
+            redirect('index.php');
+        }
 	}
 }
 ?>
