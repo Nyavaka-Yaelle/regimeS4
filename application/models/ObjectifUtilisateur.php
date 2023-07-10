@@ -7,6 +7,19 @@
         private $idUtilisateur;
         private $idObjectif;
 
+        public function getObjectif(){
+            $this->db->where('idObjectifUtilisateur', $this->getIdObjectifUtilisateur());
+            $query = $this->db->get('Objectif');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $typeObjectif = new Objectif();
+                $typeObjectif->setIdObjectif($row->idObjectif);
+                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $typeObjectif->setNom($row->nom);
+                $results[] = $typeObjectif;
+            }
+            return $results;
+        }
         public function insertDonne()
         {
             $data = array(
