@@ -31,7 +31,21 @@
             }
             return $results;
         }
+        public function getDonneById()
+        {
+            $this->db->where('idTypeSakafo', $this->getIdTypeSakafo());
+            $query = $this->db->get('TypeSakafo');
+            $results = array();
 
+            foreach ($query->result() as $row) {
+                $TypeSakafo = new TypeSakafo();
+                $TypeSakafo->setIdTypeSakafo($row->idTypeSakafo);
+                $TypeSakafo->setNom($row->nom);
+                $TypeSakafo->setIdTypeObjectif($row->idTypeObjectif);
+                $results[] = $TypeSakafo;
+            }
+            return $results;
+        }
         public function __construct($idTypeSakafo = null, $nom = null, $idTypeObjectif = null){
             $this->setIdTypeSakafo($idTypeSakafo);
             $this->setNom($nom);
