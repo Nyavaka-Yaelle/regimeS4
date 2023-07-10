@@ -85,5 +85,5 @@ create table CarteValider(
 );
 
 create or replace view v_ActiviteEnchainement as (
-    select * from ActiviteEnchainement ae join Activite a on 
+    select ae.*,a.nom from ActiviteEnchainement ae join Activite a on ae.idActivite = a.idActivite
 );
