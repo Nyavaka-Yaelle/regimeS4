@@ -42,6 +42,18 @@
             return $results;
         }
 
+        public function getDonneById(){
+            $query = $this->db->where('idTypeObjectif', $this->getIdTypeObjectif());
+            $query = $this->db->get('typeObjectif');
+            $typeObjectif = new TypeObjectif();
+            foreach ($query->result() as $row) {
+                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $typeObjectif->setNom($row->nom);
+                return $typeObjectif;
+            }
+            return null;
+        }
+
         public function __construct($idTypeObjectif = null, $nom = null){
             $this->setIdTypeObjectif($idTypeObjectif);
             $this->setNom($nom);

@@ -39,20 +39,19 @@
         }
         public function getUtilisateur()
         {
-            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur);
             $query = $this->db->get('utilisateur');
-            $results = array();
-
+            $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
-                $Utilisateur = new Utilisateur();
+                
                 $Utilisateur->setIdUtilisateur($row->idUtilisateur);
                 $Utilisateur->setNom($row->nom);
                 $Utilisateur->setEmail($row->email);
                 $Utilisateur->setMotDePasse($row->motDePasse);
                 $Utilisateur->setIdentification($row->identification);
-                $results[] = $Utilisateur;
+                return $Utilisateur;
             }
-            return $results;
+            return null;
         }
         public function getDonne()
         {
