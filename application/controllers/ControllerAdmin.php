@@ -9,6 +9,34 @@ class ControllerAdmin extends CI_Controller {
 	{
         redirect("ControllerAdmin/Sakafo");
     }
+    public function nouveauTypeSakafo()
+    {
+        $data = array();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'NewTypeSakafo';
+		$this->load($data);
+    }
+    public function nouveauTypeEnchainement()
+    {
+        $data = array();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'NewTypeEnchainement';
+		$this->load($data);
+    }
+    public function insertNewTypeEnchainement()
+    {
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeEnchainement = $this->input->post("nomTypeEnchainement");
+        $newTypeEnchainement = new TypeEnchainement(null,$nomTypeEnchainement,$idTypeObjectif);
+        $results = $newTypeEnchainement->insertDonne();
+		if(!$results)
+        {
+            $this->nouveauTypeEnchainement();
+        }
+        else{
+            redirect("ControllerAdmin/Index");
+        }
+    }
     public function Carte()
 	{
         $data = array();

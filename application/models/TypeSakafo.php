@@ -12,7 +12,7 @@
             $data = array(
                 'idTypeSakafo' => $this->getIdTypeSakafo(),
                 'nom' => $this->getNom(),
-                'idTypeObjectif' => $this->getIdTypeObjectif(),
+                'idTypeObjectif' => $this->getIdTypeObjectif()
             );
             $this->db->insert('TypeSakafo', $data);
             return $this->db->insert_id();

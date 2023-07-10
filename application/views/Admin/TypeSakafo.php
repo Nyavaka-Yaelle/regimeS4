@@ -2,7 +2,7 @@
 		<section class="ftco-section">
 			<div class="container">
 			<h3><b>Liste Type Sakafo</b></h3>
-			<div><button><a href="">Ajouter Nouveau</a></button></div>
+			<div><button><a href="<?php echo base_url("ControllerAdmin/nouveauTypeSakafo");?>">Ajouter Nouveau</a></button></div>
 				<hr>
 				<table>
 					<thead>

@@ -5,12 +5,14 @@
     {
         private $idTypeEnchainement;
         private $nom;
+        private $idTypeObjectif;
 
         public function insertDonne()
         {
             $data = array(
                 'idTypeEnchainement' => $this->getIdTypeEnchainement(),
-                'nom' => $this->getNom()
+                'nom' => $this->getNom(),
+                'idTypeObjectif' => $this->getIdTypeObjectif()
             );
             $this->db->insert('TypeEnchainement', $data);
             return $this->db->insert_id();
@@ -21,10 +23,11 @@
             $results = array();
 
             foreach ($query->result() as $row) {
-                $typeObjectf = new TypeEnchainement();
-                $typeObjectf->setIdTypeEnchainement($row->idTypeEnchainement);
-                $typeObjectf->setNom($row->nom);
-                $results[] = $typeObjectf;
+                $typeEnchainement = new TypeEnchainement();
+                $typeEnchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $typeEnchainement->setNom($row->nom);
+                $typeEnchainement->setIdTypeObjectif($row->idTypeObjectif);
+                $results[] = $typeEnchainement;
             }
             return $results;
         }
@@ -33,17 +36,19 @@
             $this->db->where('idTypeEnchainement', $this->getIdTypeEnchainement());
             $query = $this->db->get('TypeEnchainement');
             foreach ($query->result() as $row) {
-                $typeObjectf = new TypeEnchainement();
-                $typeObjectf->setIdTypeEnchainement($row->idTypeEnchainement);
-                $typeObjectf->setNom($row->nom);
-                return $typeObjectf;
+                $typeEnchainement = new TypeEnchainement();
+                $typeEnchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $typeEnchainement->setNom($row->nom);
+                $typeEnchainement->setIdTypeObjectif($row->idTypeObjectif);
+                return $typeEnchainement;
             }
             return null;
         }
 
-        public function __construct($idTypeEnchainement = null, $nom = null){
+        public function __construct($idTypeEnchainement = null, $nom = null, $idTypeObjectif = null){
             $this->setIdTypeEnchainement($idTypeEnchainement);
             $this->setNom($nom);
+            $this->setIdTypeObjectif($idTypeObjectif);
         }
         public function setIdTypeEnchainement($idTypeEnchainement){
             $this->idTypeEnchainement = $idTypeEnchainement;
@@ -56,6 +61,12 @@
         }
         public function getNom(){
             return $this->nom;
+        }
+        public function setIdTypeObjectif($idTypeObjectif){
+            $this->idTypeObjectif = $idTypeObjectif;
+        }
+        public function getIdTypeObjectif(){
+            return $this->idTypeObjectif;
         }
     }
 ?>
