@@ -10,11 +10,12 @@ class ControllerProfiles extends CI_Controller {
 		$this->load->helper('url');
 		if($this->session->userdata('idUtilisateur') == null) {
 			redirect('ControllerHome/Login');
-		}else {
+		} else {
             $idUser = $this->session->userdata('idUtilisateur');
             $this->user = new Client();
             $this->user->setIdUtilisateur($idUser);
             $this->user = $this->user->getUtilisateur();
+            echo $this->user->getEmail();
         }
 	}
     public function Index(){
