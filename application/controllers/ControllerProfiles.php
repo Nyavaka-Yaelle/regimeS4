@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ControllerHome extends CI_Controller {
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
@@ -11,7 +12,7 @@ class ControllerHome extends CI_Controller {
 		}
 	}
     public function Index(){
-        
+        $this->load->view('Profiles/Index');
     }
 }
 ?>
