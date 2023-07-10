@@ -9,13 +9,12 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="<?php base_url() ?>/assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css");?>">
 
 	</head>
 	<body>
 	<section class="ftco-section">
 		<div class="container">
-
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
@@ -63,10 +62,10 @@
 		</div>
 	</section>
 
-	<script src="<?php base_url() ?>/assets/js/jquery.min.js"></script>
-  <script src="<?php base_url() ?>/assets/js/popper.js"></script>
-  <script src="<?php base_url() ?>/assets/js/bootstrap.min.js"></script>
-  <script src="<?php base_url() ?>/assets/js/main.js"></script>
+	<script src="<?php base_url("assets/js/jquery.min.js") ?>"></script>
+  <script src="<?php base_url("assets/js/popper.js") ?>"></script>
+  <script src="<?php base_url("assets/js/bootstrap.min.js") ?>"></script>
+  <script src="<?php base_url("assets/js/main.js") ?>"></script>
 
 	</body>
 </html>
