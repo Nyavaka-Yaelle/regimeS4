@@ -20,21 +20,75 @@ create table TypeObjectif(
     `idTypeObjectif` integer primary key auto_increment,
     `nom` varchar(100) not null unique
 );
+insert into TypeObjectif (nom) values
+    ('Perdre du poids'),
+    ('Gagner du poids'),
+    ('Se muscler');
+
 create table Objectif(
     `idObjectif` integer primary key auto_increment,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif),
     `nom` varchar(100) not null unique
 );
+
+insert into Objectif(idTypeObjectif,nom) values
+    (1,'Perte de poids globale'),
+    (1,'Ventre et taille'),
+    (1,'Cuisses et fessiers'),
+    (1,'Bras et epaules'),
+    (1,'Dos et posture'),
+    (1,'Jambes et mollets'),
+    (1,'Haut du corps et poitrine');
+
+insert into Objectif(idTypeObjectif,nom) values
+    (2,'Ventre et taille+'),
+    (2,'Cuisses et fessiers+'),
+    (2,'Bras et epaules+'),
+    (2,'Dos et posture+'),
+    (2,'Jambes et mollets+'),
+    (2,'Haut du corps et poitrine+');
+
+insert into Objectif(idTypeObjectif,nom) values
+(3,'Musculation globale'),
+(3,'Ventre et taille-'),
+(3,'Cuisses et fessiers-'),
+(3,'Bras et epaules-'),
+(3,'Dos et posture-'),
+(3,'Jambes et mollets-'),
+(3,'Haut du corps et poitrine-');
+
 create table ObjectifUtilisateur(
     `idObjectifUtilisateur` integer primary key auto_increment,
     `idUtilisateur` integer references Utilisateur(idUtilisateur),
     `idObjectif` integer references Objectif(idObjectif)
 );
+
 create table TypeSakafo(
     `idTypeSakafo` integer primary key auto_increment,
     `nom` varchar(100) not null,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
+
+insert into TypeSakafo(nom,idTypeObjectif) values
+('Salade de poulet grillé',1),
+('Saumon poché avec légumes vapeur',1),
+('Wrap aux légumes',1),
+('Omelette aux légumes',1),
+('Salade de quinoa aux légumes',1);
+
+insert into TypeSakafo(nom,idTypeObjectif) values
+('Smoothie protéiné',2),
+('Avocat sur du pain complet ',2),
+('Pâtes avec sauce au fromage',2),
+('Beurre de cacahuète sur des crackers',2),
+('Poisson grillé avec quinoa',2);
+
+insert into TypeSakafo(nom,idTypeObjectif) values
+('',3),
+('',3),
+('',3),
+('',3),
+('',3);
 create table Sakafo(
     `idSakafo` integer primary key auto_increment,
     `idTypeSakafo` integer references TypeSakafo(idTypeSakafo),
