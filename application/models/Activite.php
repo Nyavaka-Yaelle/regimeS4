@@ -6,7 +6,6 @@
         private $idActivite;
         private $nom;
 
-
         public function insertDonne()
         {
             $data = array(
