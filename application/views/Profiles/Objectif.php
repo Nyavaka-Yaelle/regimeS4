@@ -24,7 +24,7 @@
 		      	</div>
 		      	<h3 class="text-center mb-4">Objectif
 				</h3>
-						<form action="<?php echo base_url("ControllerProfiles/Objectif") ?>"  method="post" class="login-form">
+						<form action="<?php echo base_url("ControllerProfiles/FillObjectif") ?>"  method="post" class="login-form">
 
 							<div class="form-group d-md-flex">
 								<div class="w-50">

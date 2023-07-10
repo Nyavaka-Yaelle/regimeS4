@@ -49,7 +49,7 @@ class ControllerProfiles extends CI_Controller {
             $data['listTypeObjectif'] = $typeObjectif->getDonne();
             $this->load->view('Profiles/SelectTypeObjectif',$data);
         }else {
-            
+            $this->load->view('Profiles/Objectif');
         }
     }
 	public function FillTypeObjectif()
