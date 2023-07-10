@@ -16,7 +16,21 @@
                 $this->insertDonne();
             }
         }
-        public function getDonne()
+        public function getObjectifUtilisateur(){
+            $this->db->where('idUtilisateur', $this->getIdUtilisateur());
+            $query = $this->db->get('ObjectifUtilisateur');
+            $results = array();
+
+            foreach ($query->result() as $row) {
+                $ObjectifUtilisateur = new ObjectifUtilisateur();
+                $ObjectifUtilisateur->setIdObjectifUtilisateur($row->idObjectifUtilisateur);
+                $ObjectifUtilisateur->setIdUtilisateur($row->idUtilisateur);
+                $ObjectifUtilisateur->setIdObjectif($row->idObjectif);
+                $results[] = $ObjectifUtilisateur;
+            }
+            return $results;
+        }
+        public function getProfile()
         {
             $this->db->where('idUtilisateur', $this->getIdUtilisateur());
             $query = $this->db->get('profiles');
