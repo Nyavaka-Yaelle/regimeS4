@@ -124,15 +124,15 @@
 		</ul>
 	</nav>
 	<div class="content">
-		<?php var_dump($listeSakafo);?>
+		<?php //var_dump($listeSakafo);?>
 		<section class="ftco-section">
 			<div class="container">
 				<table>
 					<thead>
 						<tr>
-							<th>Titre de la colonne 1</th>
-							<th>Titre de la colonne 2</th>
-							<th>Titre de la colonne 3</th>
+							<th>Type Sakafo</th>
+							<th>Nom sakafo</th>
+							<th>Prix</th>
 						</tr>
 					</thead>
 					<tbody>

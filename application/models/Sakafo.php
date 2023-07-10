@@ -10,7 +10,7 @@
    
     public function getDonne()
     {
-        $query = $this->db->get('Sakafo');
+        $query = $this->db->get('v_Sakafo');
         $results = array();
 
         foreach ($query->result() as $row) {
@@ -51,7 +51,7 @@
         return $this->idTypeSakafo;
     }
     public function getTypeSakafo(){
-        $typeSakafo = new TypeSakafo($this->idTypeSakafo,nom);
+        $typeSakafo = new TypeSakafo($this->idTypeSakafo,null);
         return $typeSakafo->getDonneById();
     }
     public function setIdTypeSakafo($idTypeSakafo){

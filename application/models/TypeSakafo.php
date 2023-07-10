@@ -46,7 +46,6 @@
             }
             return $results;
         }
-
         public function __construct($idTypeSakafo = null, $nom = null, $idTypeObjectif = null){
             $this->setIdTypeSakafo($idTypeSakafo);
             $this->setNom($nom);
