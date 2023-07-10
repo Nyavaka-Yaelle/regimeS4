@@ -12,12 +12,12 @@
 
         public function isEmailUnique() {
             $this->db->where('email', $this->email);
-            $query = $this->db->get('utilisateur');
+            $query = $this->db->get('Utilisateur');
             return $query->num_rows() == 0;
         }
         public function isNomUnique() {
             $this->db->where('nom', $this->nom);
-            $query = $this->db->get('utilisateur');
+            $query = $this->db->get('Utilisateur');
             return $query->num_rows() == 0;
         }
         public function singUp($mdp,$mdp2){
@@ -71,7 +71,7 @@
         public function getUtilisateur()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
-            $query = $this->db->get('utilisateur');
+            $query = $this->db->get('Utilisateur');
             $Utilisateur = new Utilisateur();
             foreach ($query->result() as $row) {
                 
@@ -86,7 +86,7 @@
         }
         public function getDonne()
         {
-            $query = $this->db->get('utilisateur');
+            $query = $this->db->get('Utilisateur');
             $results = array();
 
             foreach ($query->result() as $row) {
@@ -104,7 +104,7 @@
         {
             $this->db->where('email', $this->getEmail());
             $this->db->where('motDePasse', $this->getMotDePasse());
-            $query = $this->db->get('utilisateur');
+            $query = $this->db->get('Utilisateur');
 
             foreach ($query->result() as $row) {
                 $Utilisateur = new Utilisateur();

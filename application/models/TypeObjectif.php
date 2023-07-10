@@ -11,11 +11,11 @@
             $query = $this->db->get('Objectif');
             $results = array();
             foreach ($query->result() as $row) {
-                $typeObjectif = new Objectif();
-                $typeObjectif->setIdObjectif($row->idObjectif);
-                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
-                $typeObjectif->setNom($row->nom);
-                $results[] = $typeObjectif;
+                $TypeObjectif = new Objectif();
+                $TypeObjectif->setIdObjectif($row->idObjectif);
+                $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $TypeObjectif->setNom($row->nom);
+                $results[] = $TypeObjectif;
             }
             return $results;
         }
@@ -25,31 +25,31 @@
                 'idTypeObjectif' => $this->getIdTypeObjectif(),
                 'nom' => $this->getNom()
             );
-            $this->db->insert('typeObjectif', $data);
+            $this->db->insert('TypeObjectif', $data);
             return $this->db->insert_id();
         }
         public function getDonne()
         {
-            $query = $this->db->get('typeObjectif');
+            $query = $this->db->get('TypeObjectif');
             $results = array();
 
             foreach ($query->result() as $row) {
-                $typeObjectif = new TypeObjectif();
-                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
-                $typeObjectif->setNom($row->nom);
-                $results[] = $typeObjectif;
+                $TypeObjectif = new TypeObjectif();
+                $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $TypeObjectif->setNom($row->nom);
+                $results[] = $TypeObjectif;
             }
             return $results;
         }
 
         public function getDonneById(){
             $query = $this->db->where('idTypeObjectif', $this->getIdTypeObjectif());
-            $query = $this->db->get('typeObjectif');
-            $typeObjectif = new TypeObjectif();
+            $query = $this->db->get('TypeObjectif');
+            $TypeObjectif = new TypeObjectif();
             foreach ($query->result() as $row) {
-                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
-                $typeObjectif->setNom($row->nom);
-                return $typeObjectif;
+                $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $TypeObjectif->setNom($row->nom);
+                return $TypeObjectif;
             }
             return null;
         }

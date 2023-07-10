@@ -104,7 +104,7 @@ insert into Sakafo(idTypeSakafo,nom,prix) values
 
 create table TypeEnchainement(
     `idTypeEnchainement` integer primary key auto_increment,
-    `nom` varchar(100) unique not null;
+    `nom` varchar(100) unique not null,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
 insert into TypeEnchainement(nom, idTypeObjectif) values
@@ -181,7 +181,7 @@ create table RegimeJournalier(
 create table Carte(
     `idCarte` integer auto_increment primary key,
     `code` varchar(14) not null,
-    `montant` double precision not null
+    `montant` double not null
 );
 create table CarteValider(
     `idCarteValider` integer auto_increment primary key,
