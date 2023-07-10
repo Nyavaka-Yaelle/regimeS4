@@ -12,7 +12,7 @@
             $data = array(
                 'idActiviteEnchainement' => $this->getIdActiviteEnchainement(),
                 'idActivite' => $this->getIdActivite(),
-                'idEnchainement' => $this->getidEnchainement()
+                'idEnchainement' => $this->getIdEnchainement()
             );
             $this->db->insert('ActiviteEnchainement', $data);
             return $this->db->insert_id();
@@ -52,7 +52,7 @@
         public function setIdEnchainement($idEnchainement){
             $this->idEnchainement = $idEnchainement;
         }
-        public function getidEnchainement(){
+        public function getIdEnchainement(){
             return $this->idEnchainement;
         }
     }

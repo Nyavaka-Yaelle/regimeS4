@@ -26,7 +26,7 @@
     {
         $data = array(
             'idRegime' => $this->getIdRegime(),
-            'idUtilisateur' => $this->getidUtilisateur(),
+            'idUtilisateur' => $this->getIdUtilisateur(),
             'debutRegime' => $this->getDebutRegime(),
             'finRegime' => $this->getFinRegime()
         );
@@ -46,7 +46,7 @@
     public function setIdRegime($idRegime){
         $this->idRegime = $idRegime;
     }
-    public function getidUtilisateur(){
+    public function getIdUtilisateur(){
         return $this->idUtilisateur;
     }
     public function setIdUtilisateur($idUtilisateur){
