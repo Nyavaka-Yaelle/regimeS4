@@ -22,7 +22,7 @@ class ControllerHome extends CI_Controller {
 		$utilisateur = $utilisateur->login();
 		if($utilisateur != null){
 			$this->session->set_userdata('idUtilisateur',$utilisateur->getIdUtilisateur());
-			$this->Index(); 
+			redirect('ControllerProfiles/index');
 		}else{
 			$this->load->view('Login/Index');
 		}
