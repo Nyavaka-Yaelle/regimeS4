@@ -47,7 +47,7 @@
 							</div>
 							<div class="form-group">
 								<p>Votre date de naissances : </p>
-								<input type="date" class="form-control rounded-left"  name="dateNaissances" required>
+								<input type="date" class="form-control rounded-left"  name="dateNaissance" required>
 							</div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Continuer</button>
