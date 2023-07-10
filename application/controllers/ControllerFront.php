@@ -15,6 +15,10 @@ class ControllerFront extends CI_Controller {
             $this->user = $this->user->getUtilisateur();
         }
 	}
+	public function Deconnexion(){
+		$this->session->set_userdata('idUtilisateur',null);
+		$this->load->view('Login/Index');
+	}
 	public function Index()
 	{
 		$this->load->view('Home/Index');
