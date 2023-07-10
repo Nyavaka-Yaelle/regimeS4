@@ -35,6 +35,7 @@ create table TypeSakafo(
     `nom` varchar(100) not null,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif)
 );
+
 create table Sakafo(
     `idSakafo` integer primary key auto_increment,
     `idTypeSakafo` integer references TypeSakafo(idTypeSakafo),
