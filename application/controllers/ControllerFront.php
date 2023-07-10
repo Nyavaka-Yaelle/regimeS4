@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ControllerFront extends CI_Controller {
+    private $user;
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
@@ -16,11 +17,12 @@ class ControllerFront extends CI_Controller {
         }
 	}
 	public function Deconnexion(){
-		$this->session->set_userdata('idUtilisateur',null);
+		$this->session->sess_destroy();
 		$this->load->view('Login/Index');
 	}
 	public function Index()
 	{
-		$this->load->view('Home/Index');
+        $data['user'] = $this->user;
+		$this->load->view('Home/Index',$data);
 	}
 }
