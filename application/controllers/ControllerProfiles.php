@@ -32,15 +32,7 @@ class ControllerProfiles extends CI_Controller {
 	}
 	public function FillTypeObjectif()
 	{
-		$this->session->userdata('idUtilisateur');
-		$profiles = new Profiles(null,$idUtilisateur,$genre,$taille,$poids,$dateNaissance);
-		$results = $profiles->insertDonne();
-		if(!$results){
-			redirect('ControllerProfiles/index');
-		}else{
-			$this->Index();
-			//$this->load->view('Profiles/Index');
-		}
+		$this->session->set_userdata('typeObjectif',$this->input->post('typeObjectif'));
 	}
 	public function getObjectif()
 	{
