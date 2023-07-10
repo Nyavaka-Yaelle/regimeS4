@@ -4,8 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ControllerHome extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		if($this->session->utilisateurdata('idUtilisateur') == null){
-			$this->load->view('Login/Index');
+		$this->load->library('session');
+		$this->load->helper('url');
+		if($this->session->userdata('idUtilisateur') == null){
+			// $this->Index();
 		}
 	}
 	public function Index()
@@ -14,8 +16,6 @@ class ControllerHome extends CI_Controller {
 	}
 	public function Login()
 	{
-		$this->load->library('session');
-		$this->load->helper('url');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$utilisateur = new Utilisateur(null,null,$email,$password,null);
@@ -35,8 +35,6 @@ class ControllerHome extends CI_Controller {
 		redirect('');
 	}
 	public function SingUp(){
-		$this->load->library('session');
-		$this->load->helper('url');
 		$name = $this->input->post('name');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
@@ -46,7 +44,7 @@ class ControllerHome extends CI_Controller {
 		if($result){
 			$utilisateur = $utilisateur->login();
 			$this->session->set_userdata('idUtilisateur',$utilisateur->getIdUtilisateur());
-			if($this->session->utilisateurdata('idUtilisateur') == null){
+			if($this->session->userdata('idUtilisateur') == null){
 				$this->load->view('Login/Index');
 			}else{
 				redirect('');
