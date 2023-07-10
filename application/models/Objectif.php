@@ -32,8 +32,9 @@
             return $results;
         }
 
-        public function __construct($idObjectif = null, $nom = null){
+        public function __construct($idObjectif = null, $idTypeObjectif = null, $nom = null){
             $this->setIdObjectif($idObjectif);
+            $this->setIdTypeObjectif($idTypeObjectif);
             $this->setNom($nom);
         }
         public function setIdObjectif($idObjectif){
