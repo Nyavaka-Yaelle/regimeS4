@@ -102,31 +102,74 @@ insert into Sakafo(idTypeSakafo,nom,prix) values
 (3,'Omelette avec avocat',3000),
 (3,'Smoothie protéiné aux fruits et aux noix',4000);
 
-create table Regime(
-    `idRegime` integer primary key auto_increment,
-    `idUtilisateur` integer references Utilisateur(idUtilisateur),
-    `debutRegime` date not null,
-    `finRegime` date not null
-);
 create table TypeEnchainement(
     `idTypeEnchainement` integer primary key auto_increment,
     `nom` varchar(100) unique not null
 );
+insert into TypeEnchainement(nom) values
+    ('Perdre du poids'),
+    ('Gagner du poids'),
+    ('Se muscler');
+
 create table Enchainement(
     `idEnchainement` integer primary key auto_increment,
     `idTypeEnchainement` integer references TypeEnchainement(idTypeEnchainement),
     `nom` varchar(100) unique not null,
     `duree` integer not null
 );
+insert into Enchainement(idTypeEnchainement,nom,duree) values
+(1,'Marche rapide',45),
+(1,'Yoga',30),
+(1,'Aérobic',30),
+(1,'Vélo',40);
+
+insert into Enchainement(idTypeEnchainement,nom,duree) values
+(2,'Gainage',20),
+(2,'Entraînement avec poids libres',45),
+(2,'Soulevés de terre',10),
+(2,'Burpees',10);
+
+insert into Enchainement(idTypeEnchainement,nom,duree) values
+(3,'Soulevé de terre ',45),
+(3,'Squats',30),
+(3,'Développé couché',20),
+(3,'Rowing avec barre',25);
+
 create table Activite(
     `idActivite` integer primary key auto_increment,
     `nom` varchar(100) 
 );
+insert into Activite(nom) values
+('Activite en circuit'),
+('Activite de resistance'),
+('Activite de renforcement');
+
 create table ActiviteEnchainement(
     `idActiviteEnchainement` integer primary key auto_increment,
     `idActivite` integer references Activite(idActivite),
     `idEnchainement` integer references Enchainement(idEnchainement)
 );
+insert into ActiviteEnchainement(idActivite,idEnchainement) values
+(1,1),
+(1,2),
+(1,3),
+(1,4),
+(2,5),
+(2,6),
+(2,7),
+(2,8),
+(3,9),
+(3,10),
+(3,11),
+(3,12);
+
+create table Regime(
+    `idRegime` integer primary key auto_increment,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur),
+    `debutRegime` date not null,
+    `finRegime` date not null
+);
+
 create table RegimeJournalier(
     `idRegimeJournalier` integer primary key auto_increment,
     `idRegime` integer references Regime(idRegime),
