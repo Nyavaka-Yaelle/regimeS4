@@ -10,7 +10,7 @@
    
     public function getDonne()
     {
-        $query = $this->db->get('v_Sakafo');
+        $query = $this->db->get('Sakafo');
         $results = array();
 
         foreach ($query->result() as $row) {
