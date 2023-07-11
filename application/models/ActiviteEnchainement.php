@@ -56,7 +56,20 @@
             }
             return $results;
         }
-
+        public function getDonneById()
+        {
+            $query = $this->db->where('idActivite',$this->getIdActivite());
+            $query = $this->db->where('idEnchainement',$this->getIdEnchainement());
+            $query = $this->db->get('ActiviteEnchainement');
+            foreach ($query->result() as $row) {
+                $ActiviteEnchainement = new ActiviteEnchainement();
+                $ActiviteEnchainement->setIdActiviteEnchainement($row->idActiviteEnchainement);
+                $ActiviteEnchainement->setIdActivite($row->idActivite);
+                $ActiviteEnchainement->setIdEnchainement($row->idEnchainement);
+                return $ActiviteEnchainement;
+            }
+            return null;
+        }
         public function __construct($idActiviteEnchainement = null,$idActivite = null, $idEnchainement = null){
             $this->setIdActiviteEnchainement($idActiviteEnchainement);
             $this->setIdActivite($idActivite);

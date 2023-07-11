@@ -4,9 +4,9 @@
             <h3 class="text-center mb-4">Ajouter un Enchainement dans Activite <?php echo $activite->getNom(); ?> ?</h3>
             <form action="<?php echo base_url("ControllerAdmin/insertNewActiviteEnchainement")?>" method="post" class="login-form">
                 <div class="form-group">
-                    <select name="idTypeEnchainement" class="form-control rounded-left">
+                    <select name="idEnchainement" class="form-control rounded-left">
                         <?php foreach($listeEnchainement as $enchainement){ ?>
-                        <option value="<?php echo $enchainement->getIdTypeEnchainement();?>"><?php echo $enchainement->getNom();?></option>
+                        <option value="<?php echo $enchainement->getIdEnchainement();?>"><?php echo $enchainement->getNom();?></option>
                         <?php } ?>
                     </select>
                 </div>

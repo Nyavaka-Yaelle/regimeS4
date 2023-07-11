@@ -33,7 +33,8 @@
                     <input type="radio" value="bar" name="accordion">
                     <div>
                         <p>
-                            <button id="buttonPdf">Exporter en PDF</button>
+                            <!-- <button id="buttonPdf">Exporter en PDF</button> -->
+                            <a href="javascript:void(0)" class="btn btn-download">Exporter en  PDF</a>
                         </p>
                     </div>
                 </label>

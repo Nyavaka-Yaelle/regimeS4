@@ -345,10 +345,32 @@ class ControllerAdmin extends CI_Controller {
     public function insertNewActiviteEnchainement() //execute create
     {
         $nomActivite = $this->input->post("idActivite");
-        $idEnchainement = $this->input->post("idTypeEnchainement");
+        $idEnchainement = $this->input->post("idEnchainement");
         $activiteEnchainement = new ActiviteEnchainement(null, $nomActivite,$idEnchainement);
         $results = $activiteEnchainement->insertDonne();
         if(!$results) $this->nouvelleActiviteEnchainement();
+        else redirect("ControllerAdmin/Activite");
+    }
+    public function editActiviteEnchainement() //view update loader
+    {
+        $data = array();
+        $activite = new Activite ($this->input->get('idActivite'),null);
+        $idEnchainement = $this->input->get("idEnchainement");
+        $activite->setIdEnchainement($idEnchainement);
+        $data['activite'] = $activite->getDonneById(); 
+        $enchainement = new Enchainement($idEnchainement,null,null,null);
+        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['content'] = 'Activite/EditActiviteEnchainement';
+        $this->load($data);
+    }
+    public function modifierActiviteEnchainement() //execute update
+    {
+        $idEnchainement = $this->input->post("idEnchainement");
+        $idActiviteEnchainement = $this->input->post("idActiviteEnchainement");
+        $idActivite = $this->input->post("idActivite");
+        $activiteEnchainement = new ActiviteEnchainement($idActiviteEnchainement,$idActivite,$idEnchainement);
+        $results = $activiteEnchainement->updateDonne();
+        if(!$results)$this->editEnchainement();
         else redirect("ControllerAdmin/Activite");
     }
     public function Carte()
