@@ -7,7 +7,12 @@
     private $idTypeEnchainement;
     private $nom;
     private $duree;
-   
+    public function deleteDonne()
+    {
+        $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
+        if($this->db->delete('Enchainement')) return true;
+        else return false;
+    }
     public function getDonne()
     {
         $query = $this->db->get('Enchainement');

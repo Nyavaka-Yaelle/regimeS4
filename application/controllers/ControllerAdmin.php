@@ -9,31 +9,46 @@ class ControllerAdmin extends CI_Controller {
 	{
         redirect("ControllerAdmin/Sakafo");
     }
-    public function nouveauTypeSakafo()
+  //crud type enchainement
+    public function TypeEnchainement() //view list loader
+	{
+        $data = array();
+        $data['listeTypeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'TypeEnchainement/TypeEnchainement';
+		$this->load($data);
+	}
+    public function nouveauTypeEnchainement() //view create loader
     {
         $data = array();
         $data['typeObjectif'] = $this->TypeObjectif->getDonne();
-        $data['content'] = 'NewTypeSakafo';
+        $data['content'] = 'TypeEnchainement/NewTypeEnchainement';
 		$this->load($data);
     }
-    public function nouveauTypeEnchainement() //view loader
+    public function insertNewTypeEnchainement() //execute create
     {
-        $data = array();
-        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
-        $data['content'] = 'NewTypeEnchainement';
-		$this->load($data);
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeEnchainement = $this->input->post("nomTypeEnchainement");
+        $newTypeEnchainement = new TypeEnchainement(null,$nomTypeEnchainement,$idTypeObjectif);
+        $results = $newTypeEnchainement->insertDonne();
+		if(!$results)
+        {
+            $this->nouveauTypeEnchainement();
+        }
+        else{
+            redirect("ControllerAdmin/TypeEnchainement");
+        }
     }
-    public function editTypeEnchainement() //view loader
+    public function editTypeEnchainement() //view update loader
     {
         $data = array();
         $idTypeEnchainement = $this->input->get("idTypeEnchainement");
         $typeEnchainement = new TypeEnchainement($idTypeEnchainement,null);
         $data['typeEnchainement'] = $typeEnchainement->getDonneById();
         $data['typeObjectif'] = $this->TypeObjectif->getDonne();
-        $data['content'] = 'editTypeEnchainement';
+        $data['content'] = 'TypeEnchainement/EditTypeEnchainement';
 		$this->load($data);
     }
-    public function modifierTypeEnchainement() //execute
+    public function modifierTypeEnchainement() //execute update
     {
         $idTypeEnchainement = $this->input->post("idTypeEnchainement");
         $idTypeObjectif = $this->input->post("idTypeObjectif");
@@ -45,22 +60,114 @@ class ControllerAdmin extends CI_Controller {
             $this->editTypeEnchainement();
         }
         else{
-            redirect("ControllerAdmin/Index");
+            redirect("ControllerAdmin/TypeEnchainement");
         }
     }
-    public function insertNewTypeEnchainement() //execute
+    public function deleteTypeEnchainement() //view delete loader
     {
-        $idTypeObjectif = $this->input->post("idTypeObjectif");
-        $nomTypeEnchainement = $this->input->post("nomTypeEnchainement");
-        $newTypeEnchainement = new TypeEnchainement(null,$nomTypeEnchainement,$idTypeObjectif);
-        $results = $newTypeEnchainement->insertDonne();
-		if(!$results)
+        $data = array();
+        $data['idTypeEnchainement'] = $this->input->get("idTypeEnchainement");
+        $data['content'] = 'TypeEnchainement/DeleteTypeEnchainement';
+		$this->load($data);
+    } 
+    public function supprimerTypeEnchainement() //execute delete
+    {
+        $idTypeEnchainement = $this->input->get("idTypeEnchainement");
+        $TypeEnchainement = new TypeEnchainement($idTypeEnchainement,null,null);
+        $Enchainement = new Enchainement(null,$idTypeEnchainement,null,null);
+        $result1 = $TypeEnchainement->deleteDonne();
+        $result2 = $TypeEnchainement->deleteDonne();
+		if(!$result1 || !$result2)
         {
-            $this->nouveauTypeEnchainement();
+            $this->deleteTypeEnchainement();
         }
         else{
-            redirect("ControllerAdmin/Index");
+            redirect("ControllerAdmin/TypeEnchainement");
         }
+    }  
+    public function annulerTypeEnchainement() //redirect
+    {
+        redirect("ControllerAdmin/TypeEnchainement");
+    }  
+     //crud type Sakafo
+    public function TypeSakafo() //view list loader
+    {
+        $data = array();
+        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'TypeSakafo/TypeSakafo';
+        $this->load($data);
+    }
+    public function nouveauTypeSakafo() //view create loader
+    {
+        $data = array();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'TypeSakafo/NewTypeSakafo';
+        $this->load($data);
+    }
+    public function insertNewTypeSakafo() //execute create
+    {
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeSakafo = $this->input->post("nomTypeSakafo");
+        $newTypeSakafo = new TypeSakafo(null,$nomTypeSakafo,$idTypeObjectif);
+        $results = $newTypeSakafo->insertDonne();
+        if(!$results)
+        {
+            $this->nouveauTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }
+    public function editTypeSakafo() //view update loader
+    {
+        $data = array();
+        $idTypeSakafo = $this->input->get("idTypeSakafo");
+        $typeSakafo = new TypeSakafo($idTypeSakafo,null);
+        $data['typeSakafo'] = $typeSakafo->getDonneById();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'TypeSakafo/EditTypeSakafo';
+        $this->load($data);
+    }
+    public function modifierTypeSakafo() //execute update
+    {
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeSakafo = $this->input->post("nomTypeSakafo");
+        $TypeSakafo = new TypeSakafo($idTypeSakafo,$nomTypeSakafo,$idTypeObjectif);
+        $results = $TypeSakafo->updateDonne();
+        if(!$results)
+        {
+            $this->editTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }
+    public function deleteTypeSakafo() //view delete loader
+    {
+        $data = array();
+        $data['idTypeSakafo'] = $this->input->get("idTypeSakafo");
+        $data['content'] = 'TypeSakafo/DeleteTypeSakafo';
+        $this->load($data);
+    } 
+    public function supprimerTypeSakafo() //execute delete
+    {
+        $idTypeSakafo = $this->input->get("idTypeSakafo");
+        $TypeSakafo = new TypeSakafo($idTypeSakafo,null,null);
+        $Sakafo = new Sakafo(null,$idTypeSakafo,null,null);
+        $result1 = $TypeSakafo->deleteDonne();
+        $result2 = $TypeSakafo->deleteDonne();
+        if(!$result1 || !$result2)
+        {
+            $this->deleteTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }  
+    public function annulerTypeSakafo() //redirect
+    {
+        redirect("ControllerAdmin/TypeSakafo");
     }
     public function Carte()
 	{
@@ -77,20 +184,8 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Sakafo';
 		$this->load($data);
 	}
-    public function TypeSakafo()
-	{
-        $data = array();
-        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
-        $data['content'] = 'TypeSakafo';
-		$this->load($data);
-	}
-    public function TypeEnchainement()
-	{
-        $data = array();
-        $data['listeTypeEnchainement'] = $this->TypeEnchainement->getDonne();
-        $data['content'] = 'TypeEnchainement';
-		$this->load($data);
-	}
+    
+    
     public function Enchainement()
 	{
         $data = array();
@@ -109,12 +204,12 @@ class ControllerAdmin extends CI_Controller {
         $action = $this->input->get('action');
         if($action==1)
         {
-            $this->Sakafo();
-        } 
-        else if($action==11)
-        {
             $this->TypeSakafo();
         }
+        else if($action==11)
+        {
+            $this->Sakafo();
+        } 
         else if($action==2)
         {
             $this->TypeEnchainement();

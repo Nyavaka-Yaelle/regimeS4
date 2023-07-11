@@ -6,7 +6,23 @@
         private $idTypeSakafo;
         private $nom;
         private $idTypeObjectif;
-
+        public function deleteDonne()
+        {
+            $query = $this->db->where('idTypeSakafo',$this->getIdTypeSakafo());
+            if($this->db->delete('TypeSakafo')) return true;
+            else return false;
+        }
+        public function updateDonne()
+        {
+            $data = array(
+                'idTypeSakafo' => $this->getIdTypeSakafo(),
+                'nom' => $this->getNom(),
+                'idTypeObjectif' => $this->getIdTypeObjectif()
+            );
+            $query = $this->db->where('idTypeSakafo',$this->getIdTypeSakafo());
+            if($this->db->update('TypeSakafo', $data))return true;
+            else return false;
+        }
         public function insertDonne()
         {
             $data = array(

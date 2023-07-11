@@ -26,7 +26,8 @@
         public function deleteDonne()
         {
             $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
-            $this->db->delete('TypeEnchainement');
+            if($this->db->delete('TypeEnchainement')) return true;
+            else return false;
         }
         public function updateDonne()
         {
