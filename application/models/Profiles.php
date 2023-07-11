@@ -69,10 +69,7 @@
             return 'homme';
         }
         public function setGenre($genre){
-            if($genre=='1' || $genre=='0')
-            {
-                $this->genre = $genre;
-            }
+            $this->genre = $genre;
         }
         public function getTaille(){
             return $this->taille;
