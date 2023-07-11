@@ -181,7 +181,7 @@ class ControllerAdmin extends CI_Controller {
     public function nouveauSakafo() //view create loader
     {
         $data = array();
-        $data['TypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['typeSakafo'] = $this->TypeSakafo->getDonne();
         $data['content'] = 'Sakafo/NewSakafo';
         $this->load($data);
     }

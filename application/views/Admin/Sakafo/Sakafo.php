@@ -3,7 +3,7 @@
 			<div class="container">
 			<h3><b>Liste Sakafo</b></h3>
 				<hr>
-				<div><button><a href="<?php echo base_url("ControllerAdmin/nouveauTypeSakafo");?>">Ajouter Nouveau</a></button></div>
+				<div><button><a href="<?php echo base_url("ControllerAdmin/nouveauSakafo");?>">Ajouter Nouveau</a></button></div>
 				<table>
 					<thead>
 						<tr>
