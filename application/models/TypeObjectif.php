@@ -6,6 +6,34 @@
         private $idTypeObjectif;
         private $nom;
 
+        public function getSakafo(){
+            $query = $this->db->where('idTypeObjectif',$this->getIdTypeObjectif());
+            $query = $this->db->get('Sakafo');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $Sakafo = new Sakafo();
+                $Sakafo->setIdSakafo($row->idSakafo);
+                $Sakafo->setIdTypeSakafo($row->idTypeSakafo);
+                $Sakafo->setNom($row->nom);
+                $Sakafo->setPrix($row->prix);
+                $results[] = $Sakafo;
+            }
+            return $results;
+        }
+        public function getEnchainement(){
+            $query = $this->db->where('idTypeObjectif',$this->getIdTypeObjectif());
+            $query = $this->db->get('Enchainement');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $Enchainement = new Enchainement();
+                $Enchainement->setIdEnchainement($row->idEnchainement);
+                $Enchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $Enchainement->setNom($row->nom);
+                $Enchainement->setDuree($row->duree);
+                $results[] = $Enchainement;
+            }
+            return $results;
+        }
         public function getObjectif(){
             $query = $this->db->where('idTypeObjectif', $this->getIdTypeObjectif());
             $query = $this->db->get('Objectif');
