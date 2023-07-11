@@ -12,8 +12,8 @@ create table Profiles(
     `idProfiles` int primary key auto_increment,
     `idUtilisateur` int references Utilisateur(idUtilisateur),
     `genre` int not null,
-    `taille` double precision not null,
-    `poids` double precision not null,
+    `taille` double not null,
+    `poids` double not null,
     `dateNaissance` date not null
 );
 create table TypeObjectif(
@@ -78,7 +78,7 @@ create table Sakafo(
     `idSakafo` integer primary key auto_increment,
     `idTypeSakafo` integer references TypeSakafo(idTypeSakafo),
     `nom` varchar(100) not null,
-    `prix` double precision not null
+    `prix` double not null
 );
 
 insert into Sakafo(idTypeSakafo,nom,prix) values
@@ -135,7 +135,6 @@ insert into Enchainement(idTypeEnchainement,nom,duree) values
 (3,'Squats',30),
 (3,'Développé couché',20),
 (3,'Rowing avec barre',25);
-
 create table Activite(
     `idActivite` integer primary key auto_increment,
     `nom` varchar(100) 
@@ -144,7 +143,6 @@ insert into Activite(nom) values
 ('Activite en circuit'),
 ('Activite de resistance'),
 ('Activite de renforcement');
-
 create table ActiviteEnchainement(
     `idActiviteEnchainement` integer primary key auto_increment,
     `idActivite` integer references Activite(idActivite),

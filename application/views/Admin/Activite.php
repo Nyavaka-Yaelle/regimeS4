@@ -20,7 +20,7 @@
                     $row = 0;
                     foreach($listeEnchainement as $enchainement){ ?>
 							<tr>
-                                <td><?php echo "Activite1";?></td>
+                                <td ><?php echo "Activite1";?></td>
 								<td><?php echo $enchainement->getTypeEnchainement()->getNom();?></td>
 								<td><?php echo $enchainement->getNom();?></td>
 								<td class="right"><?php echo $enchainement->getDuree(); ?> min</td>

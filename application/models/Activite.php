@@ -6,9 +6,6 @@
         private $idActivite;
         private $nom;
 
-        public function getActivteTitle(){
-           
-        }
         public function getActiviterEnchanement(){
             $this->db->where('idActivite', $this->getIdActivite());
             $query = $this->db->get('ActiviteEnchainement');

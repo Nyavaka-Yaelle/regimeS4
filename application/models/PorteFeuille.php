@@ -17,6 +17,15 @@
             $this->db->insert('PorteFeuille', $data);
             return $this->db->insert_id();
         }
+        public function updateDonne()
+        {
+            $data = array(
+                'montant' => $this->getMontant()
+            );
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
+            if($this->db->update('PorteFeuille', $data)) return true;
+            else return false;
+        }
         public function getDonne()
         {
             $query = $this->db->get('PorteFeuille');
