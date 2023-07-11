@@ -195,6 +195,11 @@ create table CarteValider(
     `dateValidation` date not null,
     `idUtilisateur` integer references Utilisateur(idUtilisateur)
 );
+create table PorteFeuille(
+    `idPorteFeuille` integer auto_increment primary key,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur)
+    `montant` integer not null,
+);
 
 create or replace view v_ActiviteEnchainement as (
     select ae.*,a.nom from ActiviteEnchainement ae join Activite a on ae.idActivite = a.idActivite
