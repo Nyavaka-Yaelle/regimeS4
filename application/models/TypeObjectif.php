@@ -6,32 +6,29 @@
         private $idTypeObjectif;
         private $nom;
 
-        public function getSakafo(){
+        public function getTypeSakafo(){
             $query = $this->db->where('idTypeObjectif',$this->getIdTypeObjectif());
-            $query = $this->db->get('Sakafo');
-            $results = array();
+            $query = $this->db->get('TypeSakafo');
+            $TypeSakafo = new TypeSakafo();
             foreach ($query->result() as $row) {
-                $Sakafo = new Sakafo();
-                $Sakafo->setIdSakafo($row->idSakafo);
-                $Sakafo->setIdTypeSakafo($row->idTypeSakafo);
-                $Sakafo->setNom($row->nom);
-                $Sakafo->setPrix($row->prix);
-                $results[] = $Sakafo;
+                $TypeSakafo->setIdTypeSakafo($row->idTypeSakafo);
+                $TypeSakafo->setNom($row->nom);
+                $TypeSakafo->setIdTypeObjectif($row->idTypeObjectif);
+                return $TypeSakafo;
             }
-            return $results;
+            return null;
         }
         public function getTypeEnchainement(){
             $query = $this->db->where('idTypeObjectif',$this->getIdTypeObjectif());
             $query = $this->db->get('TypeEnchainement');
-            $results = array();
+            $typeEnchainement = new TypeEnchainement();
             foreach ($query->result() as $row) {
-                $typeEnchainement = new TypeEnchainement();
                 $typeEnchainement->setIdTypeEnchainement($row->idTypeEnchainement);
                 $typeEnchainement->setNom($row->nom);
                 $typeEnchainement->setIdTypeObjectif($row->idTypeObjectif);
-                $results[] = $typeEnchainement;
+                return $typeEnchainement;
             }
-            return $results;
+            return null;
         }
         public function getObjectif(){
             $query = $this->db->where('idTypeObjectif', $this->getIdTypeObjectif());

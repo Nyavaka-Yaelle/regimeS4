@@ -12,32 +12,40 @@
     public function getSakafo()
     {
         $this->db->where('idSakafo',$this->getIdSakafo());
-        $query = $this->db->get('RegimeJournalier');
-        $results = array();
+        $query = $this->db->get('Sakafo');
+        $Sakafo = new Sakafo();
         foreach ($query->result() as $row) {
-            $RegimeJournalier = new RegimeJournalier();
-            $RegimeJournalier->setIdRegimeJournalier($row->idRegimeJournalier);
-            $RegimeJournalier->setIdRegime($row->idRegime);
-            $RegimeJournalier->setNumeroJour($row->numeroJour);
-            $RegimeJournalier->setIdSakafo($row->idSakafo);
-            $RegimeJournalier->setIdActivite($row->idActivite);
-            $results[] = $RegimeJournalier;
+            $Sakafo->setIdSakafo($row->idSakafo);
+            $Sakafo->setIdTypeSakafo($row->idTypeSakafo);
+            $Sakafo->setNom($row->nom);
+            $Sakafo->setPrix($row->prix);
+            return $Sakafo;
         }
-        return $results;
+        return null;
     }
     public function getActivite()
     {
         $this->db->where('idActivite',$this->getIdActivite());
         $query = $this->db->get('RegimeJournalier');
+        foreach ($query->result() as $row) {
+            $Activite = new Activite();
+            $Activite->setIdActivite($row->idActivite);
+            $Activite->setNom($row->nom);
+            return $Activite;
+        }
+        return null;
+    }
+    public function getEnchainement()
+    {
+        $this->db->where('idActivite',$this->getIdActivite());
+        $query = $this->db->get('ActiviteEnchainement');
         $results = array();
         foreach ($query->result() as $row) {
-            $RegimeJournalier = new RegimeJournalier();
-            $RegimeJournalier->setIdRegimeJournalier($row->idRegimeJournalier);
-            $RegimeJournalier->setIdRegime($row->idRegime);
-            $RegimeJournalier->setNumeroJour($row->numeroJour);
-            $RegimeJournalier->setIdSakafo($row->idSakafo);
-            $RegimeJournalier->setIdActivite($row->idActivite);
-            $results[] = $RegimeJournalier;
+            $ActiviteEnchainement = new ActiviteEnchainement();
+            $ActiviteEnchainement->setIdActiviteEnchainement($row->idActiviteEnchainement);
+            $ActiviteEnchainement->setIdActivite($row->idActivite);
+            $ActiviteEnchainement->setIdEnchainement($row->idEnchainement);
+            $results[] = $ActiviteEnchainement->getEnchainement();
         }
         return $results;
     }

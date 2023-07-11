@@ -8,9 +8,9 @@
         private $idTypeObjectif;
 
 
-        public function getEcnhainement()
+        public function getEnchainement()
         {
-            $this->db->where('idTypeEnchanement',$this->getIdTypeEnchainement());
+            $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
             $query = $this->db->get('Enchainement');
             $results = array();
             foreach ($query->result() as $row) {

@@ -48,7 +48,7 @@
             $idRegime = $regime->insertDonne();
             $typeObjectif = $this->getTypeObjectif();
             $enchanement = $typeObjectif->getTypeEnchainement()->getEnchainement();
-            $sakafo = $typeObjectif->getSakafo();
+            $sakafo = $typeObjectif->getTypeSakafo()->getSakafo();
             for ($i=0; $i < 7; $i++) { 
                 $activiter = new Activite(null,$typeObjectif->getNom());
                 $idActiviter = $activiter->insertDonne();

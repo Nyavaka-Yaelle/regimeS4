@@ -22,19 +22,28 @@
             </div>
         </header>
         <main>
-        <fieldset id="accordion">
-            <?php foreach($regimeJournaliers as $regimeJournalier){ ?>
-            <label>
-                <span>jour <?php echo $regimeJournalier->getNumeroJour() + 1 ?></span>
-                <input type="radio" value="bar1" name="accordion">
-                <div>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore impedit ducimus sequi quis voluptatem id aliquid quod distinctio, maiores iste eos fugiat aliquam minima sed? Numquam tempora, quaerat illo error deserunt ad, possimus repudiandae tempore corporis eaque magnam consequuntur nisi?
-                    </p>
-                </div>
-            </label>
-            <?php } ?>
-        </fieldset>
+            <fieldset id="accordion">
+                <?php foreach($regimeJournaliers as $regimeJournalier){ ?>
+                <label>
+                    <span>jour <?php echo $regimeJournalier->getNumeroJour() + 1 ?></span>
+                    <input type="radio" value="bar<?php echo $regimeJournalier->getNumeroJour() + 1 ?>" name="accordion">
+                    <div>
+                        <p>
+                            <label>votre repas du jour : <?php echo $regimeJournalier->getSakafo()->getNom() ?> </label>
+                            <br>
+                            <label>prix: <?php echo $regimeJournalier->getSakafo()->getPrix() ?> </label>
+                            <br>
+                            <label>votre entrainement : 
+                                <?php foreach ($regimeJournalier->getEnchainement() as $enchainement) { ?>
+                                    <strong>-> </strong> <?php echo $enchainement->getNom() ?> <b> pendant : <?php echo $enchainement->getDuree() ?> min </b>
+                                    <br>
+                                <?php } ?>
+                            </lable>
+                        </p>
+                    </div>
+                </label>
+                <?php } ?>
+            </fieldset>
         </main>
     </div>
 </body>
