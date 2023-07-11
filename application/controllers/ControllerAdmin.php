@@ -16,6 +16,11 @@ class ControllerAdmin extends CI_Controller {
             $this->user = $this->user->getUtilisateur();
         }
     }
+    public function DashBoard(){
+        $this->load->view('Admin/Header');
+        $this->load->view('Admin/DashBoard/Index');
+        $this->load->view('Admin/Footer');
+    }
     public function Deconnexion(){
         $this->session->set_userdata('idAdmin',null);
 		redirect('ControllerConnexionAdmin/Index');

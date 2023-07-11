@@ -27,7 +27,9 @@ class ControllerConnexionAdmin extends CI_Controller {
 		}
 	}
     public function Inscription(){
+        $this->load->view('Admin/Header');
         $this->load->view('Admin/Login/Inscription');
+        $this->load->view('Admin/Footer');
     }
     public function SingUp(){
 		$name = $this->input->post('name');
