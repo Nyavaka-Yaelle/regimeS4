@@ -7,7 +7,7 @@
 				<?php foreach($listeActivite as $activite) { ?>
 					<div style="display:flex;padding:20px;">
 						<h5><strong><?php echo $activite->getNom();?></strong></h5>
-						<div><button ><a href="<?php echo base_url("ControllerAdmin/nouvelleActiviteEnchainement");?>">Ajouter Enchainement</a></button></div>
+						<div><button ><a href="<?php echo base_url("ControllerAdmin/nouvelleActiviteEnchainement?idActivite=".$activite->getIdActivite());?>">Ajouter Enchainement</a></button></div>
 					</div>
 					<table>
 					<thead>

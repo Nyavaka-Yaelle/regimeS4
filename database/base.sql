@@ -8,6 +8,7 @@ create table Utilisateur(
     `motDePasse` varchar(100) not null,
     `identification` int not null
 );
+insert into Utilisateur values(null,'Rakoto','Rakoto@gmail.com','123',11);
 create table Profiles(
     `idProfiles` int primary key auto_increment,
     `idUtilisateur` int references Utilisateur(idUtilisateur),

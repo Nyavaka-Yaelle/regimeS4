@@ -41,7 +41,18 @@
             }
             return $results;
         }
-
+        public function getDonneById()
+        {
+            $query = $this->db->where('idActivite',$this->getIdActivite());
+            $query = $this->db->get('Activite');
+            foreach ($query->result() as $row) {
+                $activite = new Activite();
+                $activite->setIdActivite($row->idActivite);
+                $activite->setNom($row->nom);
+                return $activite;
+            }
+            return null;
+        }
         public function __construct($idActivite = null, $nom = null){
             $this->setIdActivite($idActivite);
             $this->setNom($nom);
