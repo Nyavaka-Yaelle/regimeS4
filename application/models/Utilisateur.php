@@ -101,10 +101,25 @@
             }
             return null;
         }
+        public function getObjectifUtilisateurs()
+        {
+            $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
+            $query = $this->db->get('ObjectifUtilisateur');
+            $result = array();
+            foreach ($query->result() as $row) {
+                $ObjectifUtilisateur = new ObjectifUtilisateur();
+                $ObjectifUtilisateur->setIdObjectifUtilisateur($row->idObjectifUtilisateur);
+                $ObjectifUtilisateur->setIdUtilisateur($row->idUtilisateur);
+                $ObjectifUtilisateur->setIdObjectif($row->idObjectif);
+                $result[] = $ObjectifUtilisateur;
+            }
+            return $result;
+        }
         public function getObjectifUtilisateur()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
             $query = $this->db->get('ObjectifUtilisateur');
+            $result = array();
             foreach ($query->result() as $row) {
                 $ObjectifUtilisateur = new ObjectifUtilisateur();
                 $ObjectifUtilisateur->setIdObjectifUtilisateur($row->idObjectifUtilisateur);

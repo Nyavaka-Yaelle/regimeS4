@@ -25,6 +25,17 @@ class ControllerFront extends CI_Controller {
         $data['user'] = $this->user;
 		$this->load->view('Home/Index',$data);
 	}
+    public function AjourCaisse()
+	{
+        $data['user'] = $this->user;
+		$this->load->view('Home/Rechargement',$data);
+	}
+    public function Profile()
+	{
+        $data['profile'] = $this->user->getProfile();
+        $data['user'] = $this->user;
+		$this->load->view('Home/Profil',$data);
+	}
     public function RegimeJournalier(){
         $data['user'] = $this->user;
         if($this->user->getRegime() == null){
