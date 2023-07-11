@@ -125,6 +125,7 @@
 	</header>
 	<nav class="navbar">
 		<ul>
+			<li><a href="<?php echo base_url("ControllerAdmin/DashBoard")?>">DashBoard</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=1")?>">Type Sakafo</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=11")?>">Sakafo</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=2")?>">Type Enchainement</a></li>
