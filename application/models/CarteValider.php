@@ -8,6 +8,35 @@
     private $dateValidation;
     private $idUtilisateur;
    
+    public function getDemande()
+    {
+        if($this->getIdCarte()!=null)
+        {
+            $this->db->where('idCarte', $this->idCarte);
+        }
+        $query = $this->db->get('CarteDemande');
+        $results = array();
+        foreach ($query->result() as $row) {
+            $CarteValider = new CarteValider();
+            $CarteValider->setIdCarte($row->idCarte);
+            $CarteValider->setDateValidation($row->dateValidation);
+            $CarteValider->setIdUtilisateur($row->idUtilisateur);
+            $results[] = $CarteValider;
+        }
+        return $results;
+    }
+    public function insertDemande()
+    {
+        $data = array(
+            'idCarteDemande' => $this->getIdCarteValider(),
+            'idCarte' => $this->getIdCarte(),
+            'dateDemande' => $this->getDateValidation(),
+            'idUtilisateur' => $this->getIdUtilisateur()
+        );
+        $this->db->insert('CarteValider', $data);
+        return $this->db->insert_id();
+    }
+
     public function getDonne()
     {
         if($this->getIdCarte()!=null)
