@@ -20,17 +20,16 @@
             }
             return $results;
         }
-        public function getEnchainement(){
+        public function getTypeEnchainement(){
             $query = $this->db->where('idTypeObjectif',$this->getIdTypeObjectif());
-            $query = $this->db->get('Enchainement');
+            $query = $this->db->get('TypeEnchainement');
             $results = array();
             foreach ($query->result() as $row) {
-                $Enchainement = new Enchainement();
-                $Enchainement->setIdEnchainement($row->idEnchainement);
-                $Enchainement->setIdTypeEnchainement($row->idTypeEnchainement);
-                $Enchainement->setNom($row->nom);
-                $Enchainement->setDuree($row->duree);
-                $results[] = $Enchainement;
+                $typeEnchainement = new TypeEnchainement();
+                $typeEnchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $typeEnchainement->setNom($row->nom);
+                $typeEnchainement->setIdTypeObjectif($row->idTypeObjectif);
+                $results[] = $typeEnchainement;
             }
             return $results;
         }

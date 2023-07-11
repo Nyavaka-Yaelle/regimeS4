@@ -21,23 +21,21 @@
                 </ul>
             </div>
         </header>
-    <main>
-        <div class="content">
-            <div class="container">
-                <div class="info">
-                <h1>Bienvenue dans <b>Re</b>gime</h1>
-                <p>Bonjour <?php echo $user->getNom() ?> on vous aide a gerer votre poids et votre alimentation</p>
-                <form action="<?php echo base_url("ControllerFront/RegimeJournalier") ?>" method="post">
-                <button type="submit">Commencer</button>
-                </form>
-            </div>
-            <div class="image">
-                <img src="https://i.postimg.cc/65QxYYzh/001234.png">
-            </div>
-            </div>
-        </div>
-    </main>
+        <main>
+        <fieldset id="accordion">
+            <?php foreach($regimeJournaliers as $regimeJournalier){ ?>
+            <label>
+                <span>jour <?php echo $regimeJournalier->getNumeroJour() + 1 ?></span>
+                <input type="radio" value="bar1" name="accordion">
+                <div>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore impedit ducimus sequi quis voluptatem id aliquid quod distinctio, maiores iste eos fugiat aliquam minima sed? Numquam tempora, quaerat illo error deserunt ad, possimus repudiandae tempore corporis eaque magnam consequuntur nisi?
+                    </p>
+                </div>
+            </label>
+            <?php } ?>
+        </fieldset>
+        </main>
     </div>
-
 </body>
-</html> 
+</html>

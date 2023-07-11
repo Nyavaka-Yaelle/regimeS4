@@ -6,6 +6,19 @@
         private $idActivite;
         private $nom;
 
+        public function getActiviterEnchanement(){
+            $this->db->where('idActivite', $this->getIdActivite());
+            $query = $this->db->get('ActiviteEnchainement');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $ActiviteEnchainement = new ActiviteEnchainement();
+                $ActiviteEnchainement->setIdActiviteEnchainement($row->idActiviteEnchainement);
+                $ActiviteEnchainement->setIdActivite($row->idActivite);
+                $ActiviteEnchainement->setIdEnchainement($row->idEnchainement);
+                $results[] = $ActiviteEnchainement;
+            }
+            return $results;
+        }
         public function insertDonne()
         {
             $data = array(

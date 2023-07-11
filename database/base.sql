@@ -197,8 +197,8 @@ create table CarteValider(
 );
 create table PorteFeuille(
     `idPorteFeuille` integer auto_increment primary key,
-    `idUtilisateur` integer references Utilisateur(idUtilisateur)
-    `montant` integer not null,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur),
+    `montant` integer not null
 );
 
 create or replace view v_ActiviteEnchainement as (

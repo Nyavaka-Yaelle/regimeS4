@@ -9,6 +9,58 @@
         private $motDePasse;
         private $identification;
 
+        public function getRegimeJournalier()
+        {
+            $this->db->where('idRegime',$this->getRegime()->getIdRegime());
+            $query = $this->db->get('RegimeJournalier');
+            $result = array();
+            foreach ($query->result() as $row) {
+                $RegimeJournalier = new RegimeJournalier();
+                $RegimeJournalier->setIdRegimeJournalier($row->idRegimeJournalier);
+                $RegimeJournalier->setIdRegime($row->idRegime);
+                $RegimeJournalier->setNumeroJour($row->numeroJour);
+                $RegimeJournalier->setIdSakafo($row->idSakafo);
+                $RegimeJournalier->setIdActivite($row->idActivite);
+                $result[] =  $RegimeJournalier;
+            }
+            return $result;
+        }
+        public function getRegime()
+        {
+            $this->db->where('idUtilisateur',$this->getIdUtilisateur());
+            $query = $this->db->get('Regime');
+            $Regime = new Regime();
+            foreach ($query->result() as $row) {
+                $Regime->setIdRegime($row->idRegime);
+                $Regime->setIdUtilisateur($row->idUtilisateur);
+                $Regime->setDebutRegime($row->debutRegime);
+                $Regime->setFinRegime($row->finRegime);
+                return  $Regime;
+            }
+            return null;
+        }
+
+        public function creationRegime(){
+            date_default_timezone_set('Africa/Nairobi');
+            $currentDate = date('Y-m-d');
+            $futureDate = date('Y-m-d', strtotime('+7 days'));
+            $regime = new Regime(null,$this->getIdUtilisateur(),$currentDate,$futureDate);
+            $idRegime = $regime->insertDonne();
+            $typeObjectif = $this->getTypeObjectif();
+            $enchanement = $typeObjectif->getTypeEnchainement()->getEnchainement();
+            $sakafo = $typeObjectif->getSakafo();
+            for ($i=0; $i < 7; $i++) { 
+                $activiter = new Activite(null,$typeObjectif->getNom());
+                $idActiviter = $activiter->insertDonne();
+                for ($j=0; $j < count($enchanement); $j++) { 
+                    $activiteEnchainement = new ActiviteEnchainement(null,$idActiviter,$enchanement[$j]->getIdEnchainement());
+                    $activiteEnchainement->insertDonne();
+                }
+                $temp = $sakafo[$i % count($sakafo)];
+                $regimeJournalier = new RegimeJournalier(null,$idRegime,$i,$temp->getIdSakafo(),$idActiviter);
+                $regimeJournalier->insertDonne();
+            }
+        }
 
         public function isEmailUnique() {
             $this->db->where('email', $this->email);
@@ -40,11 +92,10 @@
         public function getTypeObjectif(){
             $objectif = new Objectif($this->getObjectifUtilisateur()->getIdObjectif());
             $objectif = $objectif->getDonneById();
-            $query = $this->db->where('idTypeObjectif',$objectif->getTypeObjectif());
+            $query = $this->db->where('idTypeObjectif',$objectif->getIdTypeObjectif());
             $query = $this->db->get('TypeObjectif');
-            $TypeObjectif = new Objectif();
+            $TypeObjectif = new TypeObjectif();
             foreach ($query->result() as $row) {
-                $TypeObjectif->setIdObjectif($row->idObjectif);
                 $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
                 $TypeObjectif->setNom($row->nom);
                 return  $TypeObjectif;
