@@ -37,7 +37,7 @@
         padding: 0;
     }
     .header {
-        background-color: #6f42c1;
+        background-color: #8d448b;
         color: #fff;
         padding: 20px;
         text-align: center;
@@ -71,13 +71,13 @@
         margin-right: 10px;
     }
     .navbar a {
-        color: #6f42c1;
+        color: #8d448b;
         text-decoration: none;
         padding: 5px 10px;
         border-radius: 3px;
     }
     .navbar a:hover {
-        background-color: #6f42c1;
+        background-color: #8d448b;
         color: #fff;
     }
 	.content {
@@ -85,7 +85,7 @@
         padding: 20px;
     }
     .footer {
-        background-color: #6610f2;
+        background-color: #8d448b;
         color: #fff;
         padding: 20px;
         text-align: center;

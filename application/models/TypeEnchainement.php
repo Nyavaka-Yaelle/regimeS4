@@ -6,6 +6,22 @@
         private $idTypeEnchainement;
         private $nom;
         private $idTypeObjectif;
+        public function deleteDonne()
+        {
+            $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
+            $this->db->delete('TypeEnchainement');
+        }
+        public function updateDonne()
+        {
+            $data = array(
+                'idTypeEnchainement' => $this->getIdTypeEnchainement(),
+                'nom' => $this->getNom(),
+                'idTypeObjectif' => $this->getIdTypeObjectif()
+            );
+            $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
+            $this->db->update('TypeEnchainement', $data);
+            return $this->db->update_id();
+        }
         public function insertDonne()
         {
             $data = array(

@@ -183,6 +183,12 @@ create table Carte(
     `code` varchar(14) not null,
     `montant` double not null
 );
+create table CarteDemande(
+    `idCarteDemande` integer auto_increment primary key,
+    `idCarte` integer references Carte(idCarte),
+    `dateDemande` date not null,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur)
+);
 create table CarteValider(
     `idCarteValider` integer auto_increment primary key,
     `idCarte` integer references Carte(idCarte),
