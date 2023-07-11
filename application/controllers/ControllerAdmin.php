@@ -155,7 +155,7 @@ class ControllerAdmin extends CI_Controller {
         $idTypeSakafo = $this->input->get("idTypeSakafo");
         $TypeSakafo = new TypeSakafo($idTypeSakafo,null,null);
         $Sakafo = new Sakafo(null,$idTypeSakafo,null,null);
-        $result1 = $TypeSakafo->deleteDonne();
+        $result1 = $Sakafo->deleteDonneByIdType();
         $result2 = $TypeSakafo->deleteDonne();
         if(!$result1 || !$result2)
         {
@@ -169,6 +169,74 @@ class ControllerAdmin extends CI_Controller {
     {
         redirect("ControllerAdmin/TypeSakafo");
     }
+  
+	//crud  Sakafo
+    public function Sakafo() //view list loader
+    {
+        $data = array();
+        $data['listeSakafo'] = $this->Sakafo->getDonne();
+        $data['content'] = 'Sakafo/Sakafo';
+        $this->load($data);
+    }
+    public function nouveauSakafo() //view create loader
+    {
+        $data = array();
+        $data['TypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'Sakafo/NewSakafo';
+        $this->load($data);
+    }
+    public function insertNewSakafo() //execute create
+    {
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $nomSakafo = $this->input->post("nomSakafo");
+        $prixSakafo = $this->input->post("prixSakafo");
+        $newSakafo = new Sakafo(null, $idTypeSakafo,$nomSakafo, $prixSakafo);
+        $results = $newSakafo->insertDonne();
+        if(!$results) $this->nouveauSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }
+    public function editSakafo() //view update loader
+    {
+        $data = array();
+        $idSakafo = $this->input->get("idSakafo");
+        $sakafo = new Sakafo($idSakafo,null,null,null);
+        $data['sakafo'] = $sakafo->getDonneById();
+        $typeSakafo = new TypeSakafo($sakafo->getIdTypeSakafo(),null,null);
+        $data['typeSakafo'] = $typeSakafo->getDonneById();
+        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'Sakafo/EditSakafo';
+        $this->load($data);
+    }
+    public function modifierSakafo() //execute update
+    {
+        $idSakafo = $this->input->post("idSakafo");
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $nomSakafo = $this->input->post("nomSakafo");
+        $prixSakafo = $this->input->post("prixSakafo");
+        $Sakafo = new Sakafo($idSakafo,$idTypeSakafo,$nomSakafo, $prixSakafo);
+        $results = $Sakafo->updateDonne();
+        if(!$results)$this->editSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }
+    public function deleteSakafo() //view delete loader
+    {
+        $data = array();
+        $data['idSakafo'] = $this->input->get("idSakafo");
+        $data['content'] = 'Sakafo/DeleteSakafo';
+        $this->load($data);
+    } 
+    public function supprimerSakafo() //execute delete
+    {
+        $idSakafo = $this->input->get("idSakafo");
+        $Sakafo = new Sakafo($idSakafo,null,null,null);
+        $results = $Sakafo->deleteDonne();
+        if(!$results) $this->deleteSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }  
+    public function annulerSakafo() //redirect
+    {
+        redirect("ControllerAdmin/Sakafo");
+    }
     public function Carte()
 	{
         $data = array();
@@ -177,15 +245,6 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Carte';
 		$this->load($data);
 	}
-	public function Sakafo()
-	{
-        $data = array();
-        $data['listeSakafo'] = $this->Sakafo->getDonne();
-        $data['content'] = 'Sakafo';
-		$this->load($data);
-	}
-    
-    
     public function Enchainement()
 	{
         $data = array();
