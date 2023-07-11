@@ -8,6 +8,7 @@
 					<thead>
 						<tr>
 							<th>Type Enchainement</th>
+							<th>Type Objectif</th>
 							<th></th>
 							<th> </th>
 						</tr>
@@ -16,6 +17,7 @@
 						<?php foreach($listeTypeEnchainement as $type){ ?>
 							<tr>
 								<td><?php echo $type->getNom();?></td>
+								<td><?php echo $type->getTypeObjectif()->getNom();?></td>
 								<td><button><a href="<?php echo base_url("ControllerAdmin/editTypeEnchainement?idTypeEnchainement=".$type->getIdTypeEnchainement());?>">Modifier</a></button></td>
 								<td><button><a href="<?php echo base_url("ControllerAdmin/deleteTypeEnchainement?idTypeEnchainement=".$type->getIdTypeEnchainement());?>">Supprimer</a></button></td>
 							</tr>

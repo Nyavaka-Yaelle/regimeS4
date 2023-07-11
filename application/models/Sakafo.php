@@ -7,7 +7,12 @@
     private $idTypeSakafo;
     private $nom;
     private $prix;
-   
+    public function deleteDonne()
+    {
+        $query = $this->db->where('idTypeSakafo',$this->getIdTypeSakafo());
+        if($this->db->delete('Sakafo')) return true;
+        else return false;
+    }
     public function getDonne()
     {
         $query = $this->db->get('Sakafo');

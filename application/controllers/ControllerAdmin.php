@@ -89,6 +89,86 @@ class ControllerAdmin extends CI_Controller {
     {
         redirect("ControllerAdmin/TypeEnchainement");
     }  
+     //crud type Sakafo
+    public function TypeSakafo() //view list loader
+    {
+        $data = array();
+        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'TypeSakafo/TypeSakafo';
+        $this->load($data);
+    }
+    public function nouveauTypeSakafo() //view create loader
+    {
+        $data = array();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'TypeSakafo/NewTypeSakafo';
+        $this->load($data);
+    }
+    public function insertNewTypeSakafo() //execute create
+    {
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeSakafo = $this->input->post("nomTypeSakafo");
+        $newTypeSakafo = new TypeSakafo(null,$nomTypeSakafo,$idTypeObjectif);
+        $results = $newTypeSakafo->insertDonne();
+        if(!$results)
+        {
+            $this->nouveauTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }
+    public function editTypeSakafo() //view update loader
+    {
+        $data = array();
+        $idTypeSakafo = $this->input->get("idTypeSakafo");
+        $typeSakafo = new TypeSakafo($idTypeSakafo,null);
+        $data['typeSakafo'] = $typeSakafo->getDonneById();
+        $data['typeObjectif'] = $this->TypeObjectif->getDonne();
+        $data['content'] = 'TypeSakafo/EditTypeSakafo';
+        $this->load($data);
+    }
+    public function modifierTypeSakafo() //execute update
+    {
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeSakafo = $this->input->post("nomTypeSakafo");
+        $TypeSakafo = new TypeSakafo($idTypeSakafo,$nomTypeSakafo,$idTypeObjectif);
+        $results = $TypeSakafo->updateDonne();
+        if(!$results)
+        {
+            $this->editTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }
+    public function deleteTypeSakafo() //view delete loader
+    {
+        $data = array();
+        $data['idTypeSakafo'] = $this->input->get("idTypeSakafo");
+        $data['content'] = 'TypeSakafo/DeleteTypeSakafo';
+        $this->load($data);
+    } 
+    public function supprimerTypeSakafo() //execute delete
+    {
+        $idTypeSakafo = $this->input->get("idTypeSakafo");
+        $TypeSakafo = new TypeSakafo($idTypeSakafo,null,null);
+        $Sakafo = new Sakafo(null,$idTypeSakafo,null,null);
+        $result1 = $TypeSakafo->deleteDonne();
+        $result2 = $TypeSakafo->deleteDonne();
+        if(!$result1 || !$result2)
+        {
+            $this->deleteTypeSakafo();
+        }
+        else{
+            redirect("ControllerAdmin/TypeSakafo");
+        }
+    }  
+    public function annulerTypeSakafo() //redirect
+    {
+        redirect("ControllerAdmin/TypeSakafo");
+    }
     public function Carte()
 	{
         $data = array();
@@ -104,13 +184,7 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Sakafo';
 		$this->load($data);
 	}
-    public function TypeSakafo()
-	{
-        $data = array();
-        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
-        $data['content'] = 'TypeSakafo';
-		$this->load($data);
-	}
+    
     
     public function Enchainement()
 	{
