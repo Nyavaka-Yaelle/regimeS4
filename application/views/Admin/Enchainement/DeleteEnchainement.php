@@ -65,8 +65,8 @@
     <div class="dialog-box">
       <h2>Etes-vous sur de vouloir supprimer ?</h2>
       <div class="dialog-buttons">
-        <a href="<?php echo base_url("ControllerAdmin/supprimerSakafo?idSakafo=".$idSakafo)?>"> Oui </a>
-        <a href="<?php echo base_url("ControllerAdmin/annulerSakafo") ?>"> Non </a>
+        <a href="<?php echo base_url("ControllerAdmin/supprimerEnchainement?idEnchainement=".$idEnchainement)?>"> Oui </a>
+        <a href="<?php echo base_url("ControllerAdmin/annulerEnchainement") ?>"> Non </a>
       </div>
     </div>
   </div>

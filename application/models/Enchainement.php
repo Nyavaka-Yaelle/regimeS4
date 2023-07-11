@@ -7,10 +7,28 @@
     private $idTypeEnchainement;
     private $nom;
     private $duree;
-    public function deleteDonne()
+    public function deleteDonneByIdType()
     {
         $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
         if($this->db->delete('Enchainement')) return true;
+        else return false;
+    }
+    public function deleteDonne()
+    {
+        $query = $this->db->where('idEnchainement',$this->getIdEnchainement());
+        if($this->db->delete('Enchainement')) return true;
+        else return false;
+    }
+    public function updateDonne()
+    {
+        $data = array(
+            'idEnchainement' => $this->getIdEnchainement(),
+            'idTypeEnchainement' => $this->getIdTypeEnchainement(),
+            'nom' => $this->getNom(),
+            'duree' => $this->getDuree()
+        );
+        $query = $this->db->where('idEnchainement',$this->getIdEnchainement());
+        if($this->db->update('Enchainement', $data)) return true;
         else return false;
     }
     public function getDonne()
@@ -26,6 +44,21 @@
             $results[] = $Enchainement;
         }
         return $results;
+    }
+    public function getDonneById()
+    {
+        $query = $this->db->where('idEnchainement', $this->getIdEnchainement());
+        $query = $this->db->get('Enchainement');
+        $results = array();
+        foreach ($query->result() as $row) {
+            $Enchainement = new Enchainement();
+            $Enchainement->setIdEnchainement($row->idEnchainement);
+            $Enchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+            $Enchainement->setNom($row->nom);
+            $Enchainement->setDuree($row->duree);
+            return $Enchainement;
+        }
+        return null;
     }
     public function insertDonne()
     {

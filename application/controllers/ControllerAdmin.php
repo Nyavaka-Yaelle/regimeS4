@@ -75,7 +75,7 @@ class ControllerAdmin extends CI_Controller {
         $idTypeEnchainement = $this->input->get("idTypeEnchainement");
         $TypeEnchainement = new TypeEnchainement($idTypeEnchainement,null,null);
         $Enchainement = new Enchainement(null,$idTypeEnchainement,null,null);
-        $result1 = $TypeEnchainement->deleteDonne();
+        $result1 = $Enchainement->deleteDonneByIdType();
         $result2 = $TypeEnchainement->deleteDonne();
 		if(!$result1 || !$result2)
         {
@@ -155,7 +155,7 @@ class ControllerAdmin extends CI_Controller {
         $idTypeSakafo = $this->input->get("idTypeSakafo");
         $TypeSakafo = new TypeSakafo($idTypeSakafo,null,null);
         $Sakafo = new Sakafo(null,$idTypeSakafo,null,null);
-        $result1 = $TypeSakafo->deleteDonne();
+        $result1 = $Sakafo->deleteDonneByIdType();
         $result2 = $TypeSakafo->deleteDonne();
         if(!$result1 || !$result2)
         {
@@ -169,6 +169,141 @@ class ControllerAdmin extends CI_Controller {
     {
         redirect("ControllerAdmin/TypeSakafo");
     }
+  
+	//crud  Sakafo
+    public function Sakafo() //view list loader
+    {
+        $data = array();
+        $data['listeSakafo'] = $this->Sakafo->getDonne();
+        $data['content'] = 'Sakafo/Sakafo';
+        $this->load($data);
+    }
+    public function nouveauSakafo() //view create loader
+    {
+        $data = array();
+        $data['typeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'Sakafo/NewSakafo';
+        $this->load($data);
+    }
+    public function insertNewSakafo() //execute create
+    {
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $nomSakafo = $this->input->post("nomSakafo");
+        $prixSakafo = $this->input->post("prixSakafo");
+        $newSakafo = new Sakafo(null, $idTypeSakafo,$nomSakafo, $prixSakafo);
+        $results = $newSakafo->insertDonne();
+        if(!$results) $this->nouveauSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }
+    public function editSakafo() //view update loader
+    {
+        $data = array();
+        $idSakafo = $this->input->get("idSakafo");
+        $sakafo = new Sakafo($idSakafo,null,null,null);
+        $data['sakafo'] = $sakafo->getDonneById();
+        $typeSakafo = new TypeSakafo($sakafo->getIdTypeSakafo(),null,null);
+        $data['typeSakafo'] = $typeSakafo->getDonneById();
+        $data['listeTypeSakafo'] = $this->TypeSakafo->getDonne();
+        $data['content'] = 'Sakafo/EditSakafo';
+        $this->load($data);
+    }
+    public function modifierSakafo() //execute update
+    {
+        $idSakafo = $this->input->post("idSakafo");
+        $idTypeSakafo = $this->input->post("idTypeSakafo");
+        $nomSakafo = $this->input->post("nomSakafo");
+        $prixSakafo = $this->input->post("prixSakafo");
+        $Sakafo = new Sakafo($idSakafo,$idTypeSakafo,$nomSakafo, $prixSakafo);
+        $results = $Sakafo->updateDonne();
+        if(!$results)$this->editSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }
+    public function deleteSakafo() //view delete loader
+    {
+        $data = array();
+        $data['idSakafo'] = $this->input->get("idSakafo");
+        $data['content'] = 'Sakafo/DeleteSakafo';
+        $this->load($data);
+    } 
+    public function supprimerSakafo() //execute delete
+    {
+        $idSakafo = $this->input->get("idSakafo");
+        $Sakafo = new Sakafo($idSakafo,null,null,null);
+        $results = $Sakafo->deleteDonne();
+        if(!$results) $this->deleteSakafo();
+        else redirect("ControllerAdmin/Sakafo");
+    }  
+    public function annulerSakafo() //redirect
+    {
+        redirect("ControllerAdmin/Sakafo");
+    }
+    //crud  Enchainement
+    public function Enchainement() //view list loader
+    {
+        $data = array();
+        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['content'] = 'Enchainement/Enchainement';
+        $this->load($data);
+    }
+    public function nouveauEnchainement() //view create loader
+    {
+        $data = array();
+        $data['typeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'Enchainement/NewEnchainement';
+        $this->load($data);
+    }
+    public function insertNewEnchainement() //execute create
+    {
+        $idTypeEnchainement = $this->input->post("idTypeEnchainement");
+        $nomEnchainement = $this->input->post("nomEnchainement");
+        $dureeEnchainement = $this->input->post("dureeEnchainement");
+        $newEnchainement = new Enchainement(null, $idTypeEnchainement,$nomEnchainement, $dureeEnchainement);
+        $results = $newEnchainement->insertDonne();
+        if(!$results) $this->nouveauEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }
+    public function editEnchainement() //view update loader
+    {
+        $data = array();
+        $idEnchainement = $this->input->get("idEnchainement");
+        $enchainement = new Enchainement($idEnchainement,null,null,null);
+        $data['Enchainement'] = $enchainement->getDonneById();
+        $typeEnchainement = new TypeEnchainement($enchainement->getIdTypeEnchainement(),null,null);
+        $data['typeEnchainement'] = $typeEnchainement->getDonneById();
+        $data['listeTypeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'Enchainement/EditEnchainement';
+        $this->load($data);
+    }
+    public function modifierEnchainement() //execute update
+    {
+        $idEnchainement = $this->input->post("idEnchainement");
+        $idTypeEnchainement = $this->input->post("idTypeEnchainement");
+        $nomEnchainement = $this->input->post("nomEnchainement");
+        $dureeEnchainement = $this->input->post("dureeEnchainement");
+        $enchainement = new Enchainement($idEnchainement,$idTypeEnchainement,$nomEnchainement, $dureeEnchainement);
+        $results = $enchainement->updateDonne();
+        if(!$results)$this->editEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }
+    public function deleteEnchainement() //view delete loader
+    {
+        $data = array();
+        $data['idEnchainement'] = $this->input->get("idEnchainement");
+        $data['content'] = 'Enchainement/DeleteEnchainement';
+        $this->load($data);
+    } 
+    public function supprimerEnchainement() //execute delete
+    {
+        $idEnchainement = $this->input->get("idEnchainement");
+        $Enchainement = new Enchainement($idEnchainement,null,null,null);
+        $results = $Enchainement->deleteDonne();
+        if(!$results) $this->deleteEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }  
+    public function annulerEnchainement() //redirect
+    {
+        redirect("ControllerAdmin/Enchainement");
+    }
     public function Carte()
 	{
         $data = array();
@@ -177,21 +312,12 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Carte';
 		$this->load($data);
 	}
-	public function Sakafo()
-	{
-        $data = array();
-        $data['listeSakafo'] = $this->Sakafo->getDonne();
-        $data['content'] = 'Sakafo';
-		$this->load($data);
-	}
-    
-    
-    public function Enchainement()
+    public function Activite()
 	{
         $data = array();
         $data['listeEnchainement'] = $this->Enchainement->getDonne();
-        $data['content'] = 'Enchainement';
-		$this->load($data);
+        $data['content'] = 'Activite';
+        $this->load($data);
 	}
     public function load($data)
 	{
@@ -221,6 +347,10 @@ class ControllerAdmin extends CI_Controller {
         else if($action==3)
         {
             $this->Carte();
+        }
+        else if($action==22)
+        {
+            $this->Activite();
         }
     }
 	
