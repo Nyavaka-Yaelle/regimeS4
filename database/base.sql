@@ -80,12 +80,89 @@ create table Sakafo(
     `nom` varchar(100) not null,
     `prix` double not null
 );
+
 create table CompoSakafo(
     `idCompoSakafo` integer primary key auto_increment,
     `idSakafo` integer references Sakafo(idSakafo),
-    `nom` varchar(100) not null,
+    `nomComp` varchar(100) not null,
     `quantite` double not null
 );
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(1,'Poulet grille',50),
+(1,'Laitue',25),
+(1,'Tomates',25);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(2,'Poisson',55),
+(2,'Legumes',25),
+(2,'Assaisonement',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(3,'Legumes',40),
+(3,'Tortilla',40),
+(3,'Sauce',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(4,'Oeufs',60),
+(4,'Legumes',30),
+(4,'Assaisonement',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(5,'Quinoa cuit',50),
+(5,'Légumes frais mélangés',40),
+(5,'Assaisonnement',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(6,'Protéine en poudre',30),
+(6,'Lait',50),
+(6,'Fruits',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(7,'Avocat',50),
+(7,'Pain complet',40),
+(7,'Jus de citron',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(8,'Pates',70),
+(8,'Fromage',20),
+(8,'Crème',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(9,'Cacahuetes',80),
+(9,'Chocolat fondu',10),
+(9,'Sucre',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(10,'Poisson',50),
+(10,'Quinoa',30),
+(10,'Légumes grillés',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(11,'Poulet',65),
+(11,'Patate douce',25),
+(11,'Assaisonnements',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(12,'Quinoa',45),
+(12,'Legumes',30),
+(12,'Tofu',25);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(13,'Viande',45),
+(13,'Riz',35),
+(13,'Legumes',20);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(14,'Oeuf',50),
+(14,'Avocat',40),
+(14,'Assaisonnements',10);
+
+insert into CompoSakafo(idSakafo,nomComp,quantite) values
+(15,'Laits',55),
+(15,'Fruit',35),
+(15,'Noix',10);
+
+
 
 insert into Sakafo(idTypeSakafo,nom,prix) values
 (1,'Salade de poulet grillé',6000),
