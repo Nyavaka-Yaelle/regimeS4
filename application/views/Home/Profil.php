@@ -52,7 +52,7 @@
                             <strong>
                                 Genre :
                             </strong>
-                            <?php echo $profile->getGenre() ?>
+                            <?php echo $profile->getGenreLettre() ?>
                         </p>
                     </div>
                     <div class="form-group">

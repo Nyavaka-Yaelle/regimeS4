@@ -63,7 +63,10 @@
             $this->idUtilisateur = $idUtilisateur;
         }
         public function getGenre(){
-            if($this->genre == 1){
+           return $this->genre;
+        }
+        public function getGenreLettre(){
+            if($this->genre == 0){
                 return 'femme';
             }
             return 'homme';
