@@ -6,7 +6,7 @@
         private $idActivite;
         private $nom;
 
-        public function getActiviterEnchanement(){
+        public function getActiviterEnchainement(){
             $this->db->where('idActivite', $this->getIdActivite());
             $query = $this->db->get('ActiviteEnchainement');
             $results = array();

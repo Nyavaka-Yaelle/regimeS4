@@ -25,6 +25,10 @@ insert into TypeObjectif (nom) values
     ('Gagner du poids'),
     ('Se muscler');
 
+insert into TypeObjectif (nom) values
+    ('Atteindre IMC');
+
+
 create table Objectif(
     `idObjectif` integer primary key auto_increment,
     `idTypeObjectif` integer references TypeObjectif(idTypeObjectif),

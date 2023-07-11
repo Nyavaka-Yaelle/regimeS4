@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Liste Regime FrontOffice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    th, td {
+        padding: 20px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #8d448b;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    .header h1 {
+        margin: 0;
+    }
+	.header h2 {
+        text-align: left;
+        padding: 5px;
+		color:white;
+		font-weight:bold;
+    }
+
+    .navbar {
+        background-color: #f5f5f5;
+        padding: 10px;
+		width:max-content;
+		margin:0 auto;
+    }
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .navbar li {
+        margin-right: 10px;
+    }
+    .navbar a {
+        color: #8d448b;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+    .navbar a:hover {
+        background-color: #8d448b;
+        color: #fff;
+    }
+	.content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+    .footer {
+        background-color: #8d448b;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+		left:0;
+		bottom:0;
+		position: fixed;
+		width:100vw;
+    }
+	.right{
+		text-align:right;
+	}
+    @media (max-width: 768px) {
+        .header {
+            padding: 10px;
+        }
+        .navbar {
+            padding: 5px;
+        }
+        .navbar ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .navbar li {
+            margin: 5px;
+        }
+    }
+</style>
+</head>
+<body>	
+	<header class="header">
+		<h2><em>Re<small>gime</small> </em></h2>
+	</header>
+	<nav class="navbar">
+		<ul>
+			<li><a href="">Type Sakafo</a></li>
+			<li><a href="">Sakafo</a></li>
+			<li><a href="">Type Enchainement</a></li>
+			<li><a href="">Enchainement</a></li>
+			<li><a href="">Carte</a></li>
+		</ul>
+	</nav>
+    <div class="content">
+		<section class="ftco-section">
+			<div class="container">
+			<h3><b>Votre regime</b></h3>
+			<!-- <div><button><a href="">Ajouter Nouveau</a></button></div> -->
+				<hr>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Jour1</th>
+                            <th>Jour2</th>
+							<th>Jour3</th>
+							<th>Jour4</th>
+                            <th>Jour5</th>
+                            <th>Jour6</th>
+                            <th>Jour7</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<tr>
+								<td>Repas</td>
+								<td>Poulet grillé avec patates douces <br>(10000 Ar)</td>
+                                <td>Bowl de quinoa et légumes avec tofu<br>(9000 Ar)</td>
+                                <td>Steak de boeuf avec riz complet<br>(5000 Ar)</td>
+                                <td>Omelette avec avocat<br>(3000 Ar)</td>
+                                <td>Smoothie protéiné aux fruits et aux noix<br>(4000 Ar)</td>
+                                <td>Poulet grillé avec patates douces<br>(10000 Ar)</td>
+                                <td>Bowl de quinoa et légumes avec tofu<br>(9000 Ar)</td>
+							</tr>
+
+                            <!-- Exercices -->
+                            <tr>
+								<td>Exercices</td>
+								<td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+                                <td>Soulevé de terre <br> (45 min)</td>
+							</tr>
+                            <tr>
+								<td></td>
+								<td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+                                <td>Squats <br> (30 min) </td>
+							</tr>
+                            <tr>
+								<td></td>
+								<td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+                                <td>Développé couché <br> (20min) </td>
+							</tr>
+                            <tr>
+								<td></td>
+								<td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+                                <td>Rowing avec barre <br> (25 min) </td>
+							</tr>
+
+					</tbody>
+				</table>			
+			</div>
+		</section>
+	</div>
+    <footer class="footer">
+    	<small>Copyright Regime &copy 2023</small>
+	</footer>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>	
+	</body>
+</html>
