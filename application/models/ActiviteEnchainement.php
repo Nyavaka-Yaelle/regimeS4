@@ -30,6 +30,18 @@
             }
             return null;
         }
+        public function getEnchainementsByIdActivite()
+        {
+            $this->db->where('idActivite',$this->getIdActivite());
+            $query = $this->db->get('ActiviteEnchainement');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $enchainement = new Enchainement($row->idEnchainement,null,null,null);
+                $enchainement = $enchainement->getDonneById();
+                $results[] = $enchainement;
+            }
+            return $results;
+        }
         public function getDonne()
         {
             $query = $this->db->get('ActiviteEnchainement');

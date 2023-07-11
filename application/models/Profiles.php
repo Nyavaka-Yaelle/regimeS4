@@ -63,16 +63,16 @@
             $this->idUtilisateur = $idUtilisateur;
         }
         public function getGenre(){
-            if($this->genre == 1){
-                return 'homme';
+           return $this->genre;
+        }
+        public function getGenreLettre(){
+            if($this->genre == 0){
+                return 'femme';
             }
-            return 'femme';
+            return 'homme';
         }
         public function setGenre($genre){
-            if($genre=='1' || $genre=='0')
-            {
-                $this->genre = $genre;
-            }
+            $this->genre = $genre;
         }
         public function getTaille(){
             return $this->taille;
