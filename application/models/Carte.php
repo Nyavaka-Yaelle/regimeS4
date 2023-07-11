@@ -7,6 +7,19 @@
     private $code;
     private $montant;
    
+
+    public function checkCode()
+    {
+        $sql="select  c.* from Carte c left join CarteValider ca on c.idCarte = ca.idCarte where idCarteValider = null and code='$this->getCode()'";
+        $query = $this->db->query($sql);
+        $row = $query->row_array();
+        if($row != null){
+            $carteValider = new CarteValider($row->idCarte,$row->code,$row->montant);
+            $carteValider->insertDemande();
+            return true;
+        }
+        return false;
+    }
     public function getDonne()
     {
         $query = $this->db->get('Carte');

@@ -48,4 +48,7 @@ class ControllerFront extends CI_Controller {
         $data['regimeJournaliers'] = $this->user->getRegimeJournalier();
         $this->load->view('Home/RegimeJournalier',$data);
     }
+    public function Recharger(){
+        $code = $this->input->post();
+    }
 }
