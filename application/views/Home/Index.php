@@ -21,7 +21,7 @@
                 <li><a href="<?php echo base_url("ControllerFront/Index") ?>">Home</a></li>
                 <li><a href="<?php echo base_url("ControllerFront/RegimeJournalier") ?>">Votre regime journalier</a></li>
                 <li><a href="<?php echo base_url("ControllerFront/Profile") ?>">Profil</a></li>
-                <li><a href="<?php echo base_url("ControllerFront/AjourCaisse") ?>">0 ar +</a></li>
+                <li><a href="<?php echo base_url("ControllerFront/AjourCaisse") ?>"><?php echo $user->getPorteFeuille()->getMontant() ?> ar +</a></li>
                 <li><a href="<?php echo base_url("ControllerFront/Deconnexion") ?>">Deconnexion</a></li>
                 </ul>
             </div>

@@ -15,6 +15,10 @@ class ControllerFront extends CI_Controller {
             $this->user->setIdUtilisateur($idUser);
             $this->user = $this->user->getUtilisateur();
         }
+        if($this->user->getPorteFeuille()== null){
+            $protefeuille = new PorteFeuille(null,$user->getIdUtilisateur(),0);
+            $protefeuille->insertDonne();
+        }
 	}
 	public function Deconnexion(){
 		$this->session->sess_destroy();

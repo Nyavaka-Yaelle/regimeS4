@@ -101,6 +101,19 @@
             }
             return null;
         }
+        public function getProteFeuille()
+        {
+            $this->db->where('idUtilisateur',$this->getIdUtilisateur())
+            $query = $this->db->get('PorteFeuille');
+            foreach ($query->result() as $row) {
+                $PorteFeuille = new PorteFeuille();
+                $PorteFeuille->setIdPorteFeuille($row->idPorteFeuille);
+                $PorteFeuille->setIdUtilisateur($row->idUtilisateur);
+                $PorteFeuille->setMontant($row->montant);
+                return $PorteFeuille;
+            }
+            return null;
+        }
         public function getObjectifUtilisateurs()
         {
             $query = $this->db->where('idUtilisateur',$this->getIdUtilisateur());
