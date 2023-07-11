@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Graphique en Barres</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="barChart"  height="300" width="100" style="margin-left:20% ;  margin-right :20% "></canvas>
+
+  <script>
+    // Données du graphique
+    var data = {
+      labels: ['Activite en circuit', 'Activite de resistance', 'Activite de renforcement'],
+      datasets: [{
+        label: 'Ventes',
+        data: [12, 19, 3],
+        backgroundColor: '#36a2eb'
+      }]
+    };
+
+    // Options du graphique
+    var options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Ventes mensuelles'
+        },
+        legend: {
+          display: false
+        }
+      }
+    };
+    
+    // Création du graphique en barres
+    var barChart = new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: data,
+      options: options 
+    });
+  </script>
+</body>
+</html>
