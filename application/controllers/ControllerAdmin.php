@@ -315,7 +315,8 @@ class ControllerAdmin extends CI_Controller {
     public function Activite()
 	{
         $data = array();
-        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        // $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['listeActivite'] = $this->Activite->getDonne();
         $data['content'] = 'Activite';
         $this->load($data);
 	}
