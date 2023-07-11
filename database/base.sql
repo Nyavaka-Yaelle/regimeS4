@@ -81,6 +81,29 @@ create table Sakafo(
     `prix` double not null
 );
 
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(1,'Salade de poulet grillé',6000),
+(1,'Saumon poché avec légumes vapeur',10000),
+(1,'Wrap aux légumes',4000),
+(1,'Omelette aux légumes',3000),
+(1,'Salade de quinoa aux légumes',5000);
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(2,'Smoothie protéiné',3000),
+(2,'Avocat sur du pain complet',4000),
+(2,'Pâtes avec sauce au fromage',10000),
+(2,'Beurre de cacahuète sur des crackers',5000),
+(2,'Poisson grillé avec quinoa',6000);
+
+insert into Sakafo(idTypeSakafo,nom,prix) values
+(3,'Poulet grillé avec patates douces',10000),
+(3,'Bowl de quinoa et légumes avec tofu',9000),
+(3,'Steak de boeuf avec riz complet',5000),
+(3,'Omelette avec avocat',3000),
+(3,'Smoothie protéiné aux fruits et aux noix',4000);
+
+
 create table CompoSakafo(
     `idCompoSakafo` integer primary key auto_increment,
     `idSakafo` integer references Sakafo(idSakafo),
@@ -163,27 +186,6 @@ insert into CompoSakafo(idSakafo,nomComp,quantite) values
 (15,'Noix',10);
 
 
-
-insert into Sakafo(idTypeSakafo,nom,prix) values
-(1,'Salade de poulet grillé',6000),
-(1,'Saumon poché avec légumes vapeur',10000),
-(1,'Wrap aux légumes',4000),
-(1,'Omelette aux légumes',3000),
-(1,'Salade de quinoa aux légumes',5000);
-
-insert into Sakafo(idTypeSakafo,nom,prix) values
-(2,'Smoothie protéiné',3000),
-(2,'Avocat sur du pain complet',4000),
-(2,'Pâtes avec sauce au fromage',10000),
-(2,'Beurre de cacahuète sur des crackers',5000),
-(2,'Poisson grillé avec quinoa',6000);
-
-insert into Sakafo(idTypeSakafo,nom,prix) values
-(3,'Poulet grillé avec patates douces',10000),
-(3,'Bowl de quinoa et légumes avec tofu',9000),
-(3,'Steak de boeuf avec riz complet',5000),
-(3,'Omelette avec avocat',3000),
-(3,'Smoothie protéiné aux fruits et aux noix',4000);
 
 create table TypeEnchainement(
     `idTypeEnchainement` integer primary key auto_increment,

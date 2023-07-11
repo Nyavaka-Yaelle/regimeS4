@@ -160,10 +160,11 @@ fieldset > label input[type=radio] {
 }
 
 fieldset > label > span {
+    text-align: center;
 	padding: 15px 20px;
 	display: block;
 	cursor: pointer;
-    width: 70%;
+    width: 1000px;
 	font-weight: 900;
 	text-transform: uppercase;
 	background: #f1f1f1;
