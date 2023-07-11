@@ -33,6 +33,22 @@
             $this->db->insert('TypeSakafo', $data);
             return $this->db->insert_id();
         }
+        public function getSakafo()
+        {
+            $this->db->where('idTypeSakafo',$this->getIdTypeSakafo());
+            $query = $this->db->get('Sakafo');
+            $results = array();
+
+            foreach ($query->result() as $row) {
+                $Sakafo = new Sakafo();
+                $Sakafo->setIdSakafo($row->idSakafo);
+                $Sakafo->setIdTypeSakafo($row->idTypeSakafo);
+                $Sakafo->setNom($row->nom);
+                $Sakafo->setPrix($row->prix);
+                $results[] = $Sakafo;
+            }
+            return $results;
+        }
         public function getDonne()
         {
             $query = $this->db->get('TypeSakafo');

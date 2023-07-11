@@ -17,6 +17,19 @@
             $this->db->insert('ActiviteEnchainement', $data);
             return $this->db->insert_id();
         }
+        public function getEnchainement(){
+            $this->db->where('idEnchainement',$this->getIdEnchainement());
+            $query = $this->db->get('Enchainement');
+            foreach ($query->result() as $row) {
+                $Enchainement = new Enchainement();
+                $Enchainement->setIdEnchainement($row->idEnchainement);
+                $Enchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $Enchainement->setNom($row->nom);
+                $Enchainement->setDuree($row->duree);
+                return $Enchainement;
+            }
+            return null;
+        }
         public function getDonne()
         {
             $query = $this->db->get('ActiviteEnchainement');
