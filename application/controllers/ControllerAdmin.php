@@ -322,9 +322,22 @@ class ControllerAdmin extends CI_Controller {
     public function nouvelleActivite() //view create loader
     {
         $data = array();
-        $data['typeEnchainement'] = $this->TypeEnchainement->getDonne();
-        $data['content'] = 'Enchainement/NewEnchainement';
+        $data['content'] = 'Activite/NewActivite';
         $this->load($data);
+    }
+    public function nouvelleActiviteEnchainement() //view create loader
+    {
+        $data = array();
+        $data['content'] = 'Activite/NewActivite';
+        $this->load($data);
+    }
+    public function insertNewActivite() //execute create
+    {
+        $nomActivite = $this->input->post("nomActivite");
+        $newActivite = new Activite(null, $nomActivite);
+        $results = $newActivite->insertDonne();
+        if(!$results) $this->nouvelleActivite();
+        else redirect("ControllerAdmin/Activite");
     }
     public function Carte()
 	{
@@ -339,7 +352,7 @@ class ControllerAdmin extends CI_Controller {
         $data = array();
         // $data['listeEnchainement'] = $this->Enchainement->getDonne();
         $data['listeActivite'] = $this->Activite->getDonne();
-        $data['content'] = 'Activite';
+        $data['content'] = 'Activite/Activite';
         $this->load($data);
 	}
     public function load($data)

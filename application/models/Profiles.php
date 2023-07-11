@@ -69,7 +69,7 @@
             return 'femme';
         }
         public function setGenre($genre){
-            if($genre=='1' || $genre=='0')
+            if($genre==1 || $genre==0)
             {
                 $this->genre = $genre;
             }

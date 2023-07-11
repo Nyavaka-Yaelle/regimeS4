@@ -3,13 +3,12 @@
 			<div class="container">
 			<h3><b>Liste Enchainement par Activite</b></h3>
 				<hr>
-				<div><button><a href="<?php echo base_url("ControllerAdmin/nouvellleActivite");?>">Ajouter Nouveau Activite</a></button></div>
+				<div><button><a href="<?php echo base_url("ControllerAdmin/nouvelleActivite");?>">Ajouter Nouveau Activite</a></button></div>
 				<?php foreach($listeActivite as $activite) { ?>
 					<div style="display:flex;padding:20px;">
 						<h5><strong><?php echo $activite->getNom();?></strong></h5>
-						<div><button ><a href="<?php echo base_url("ControllerAdmin/nouveauEnchainement");?>">Ajouter Enchainement</a></button></div>
+						<div><button ><a href="<?php echo base_url("ControllerAdmin/nouvelleActiviteEnchainement");?>">Ajouter Enchainement</a></button></div>
 					</div>
-					
 					<table>
 					<thead>
 						<tr>
