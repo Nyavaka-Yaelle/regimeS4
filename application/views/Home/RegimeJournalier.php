@@ -33,8 +33,9 @@
                     <input type="radio" value="bar" name="accordion">
                     <div>
                         <p>
+                            <a href="<?php echo base_url("ControllerFront/pdf")?>">View PDF</a>
                             <!-- <button id="buttonPdf">Exporter en PDF</button> -->
-                            <a href="javascript:void(0)" class="btn btn-download">Exporter en  PDF</a>
+                            <!-- <a href="javascript:void(0)" class="btn btn-download">Exporter en  PDF</a> -->
                         </p>
                     </div>
                 </label>
@@ -71,40 +72,5 @@
     <script src="<?php echo base_url() ?>assets/jsPdf/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>assets/jsPdf/html2pdf.bundle.min.js"></script>
     <script src="<?php echo base_url() ?>assets/jsPdf/jquery.min.js"></script>
-    <script>
-        const options = {
-            margin: 0.3,
-            filename: 'filename.pdf',
-            image: { 
-            type: 'jpeg', 
-            quality: 0.98 
-            },
-            html2canvas: { 
-            scale: 2 
-            },
-            jsPDF: { 
-            unit: 'in', 
-            format: 'a4', 
-            orientation: 'portrait' 
-            }
-        }
-        
-        var objstr = document.getElementById('block1').innerHTML;
-        var objstr1 = document.getElementById('block2').innerHTML;
-        
-        var strr = '<html><head><title>Testing</title>';   
-        strr += '</head><body>';
-        strr += '<div style="border:0.1rem solid #ccc!important;padding:0.5rem 1.5rem 0.5rem 1.5rem;margin-top:1.5rem">'+objstr+'</div>';
-        strr += '<div style="border:0.1rem solid #ccc!important;padding:0.5rem 1.5rem 0.5rem 1.5rem;margin-top:1.5rem">'+objstr1+'</div>';
-        strr += '</body></html>';
-        
-        $('.btn-download').click(function(e){
-            e.preventDefault();
-            var element = document.getElementById('demo');
-            //html2pdf().from(element).set(options).save();
-            //html2pdf(element);
-            html2pdf().from(strr).set(options).save();
-        });
-    </script>	
 </body>
 </html>

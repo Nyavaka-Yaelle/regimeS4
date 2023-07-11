@@ -30,6 +30,15 @@ class ControllerFront extends CI_Controller {
         $data['user'] = $this->user;
 		$this->load->view('Home/Index',$data);
 	}
+    public function pdf()
+	{
+        $data['user'] = $this->user;
+        if($this->user->getRegime() == null){
+            $this->user->creationRegime();
+        }
+        $data['regimeJournaliers'] = $this->user->getRegimeJournalier();
+		$this->load->view('Home/toPDF',$data);
+	}
     public function AjourCaisse()
 	{
         $data['user'] = $this->user;
