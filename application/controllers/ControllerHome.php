@@ -21,7 +21,7 @@ class ControllerHome extends CI_Controller {
 		$password = $this->input->post('password');
 		$utilisateur = new Utilisateur(null,null,$email,$password,null);
 		$utilisateur = $utilisateur->login();
-		if($utilisateur != null){
+		if($utilisateur != null && $utilisateur->getIdentification() == 1){
 			$this->session->set_userdata('idUtilisateur',$utilisateur->getIdUtilisateur());
 			redirect('ControllerProfiles/Index');
 		}else{

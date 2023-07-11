@@ -2,14 +2,28 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ControllerAdmin extends CI_Controller {
+    private $user;
 	public function __construct() {
-		parent::__construct();
-	}
+        parent::__construct();
+        $this->load->library('session');
+		$this->load->helper('url');
+		if($this->session->userdata('idAdmin') == null){
+			redirect('ControllerConnexionAdmin/Index');
+		}else {
+            $idUser = $this->session->userdata('idAdmin');
+            $this->user = new Admin();
+            $this->user->setIdUtilisateur($idUser);
+            $this->user = $this->user->getUtilisateur();
+        }
+    }
+    public function Deconnexion(){
+        $this->session->set_userdata('idAdmin',null);
+		redirect('ControllerConnexionAdmin/Index');
+    }
     public function Index()
 	{
         redirect("ControllerAdmin/Sakafo");
     }
-  //crud type enchainement
     public function TypeEnchainement() //view list loader
 	{
         $data = array();

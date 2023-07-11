@@ -21,7 +21,8 @@ class ControllerFront extends CI_Controller {
         }
 	}
 	public function Deconnexion(){
-		$this->session->sess_destroy();
+		$this->session->set_userdata('idUtilisateur',null);
+		$this->session->set_userdata('idTypeObjectif',null);
 		$this->load->view('Login/Index');
 	}
 	public function Index()
