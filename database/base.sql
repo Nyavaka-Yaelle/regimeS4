@@ -26,9 +26,6 @@ insert into TypeObjectif (nom) values
     ('Gagner du poids'),
     ('Se muscler');
 
-insert into TypeObjectif (nom) values
-    ('Atteindre IMC');
-
 
 create table Objectif(
     `idObjectif` integer primary key auto_increment,
@@ -288,8 +285,6 @@ create table PorteFeuille(
     `idUtilisateur` integer references Utilisateur(idUtilisateur),
     `montant` integer not null
 );
-
-select  c.* from Carte left join CarteValider where idCarteValider = null;
 
 create or replace view v_ActiviteEnchainement as (
 select ae.*,a.nom, e.nom nomEnchainement,e.idTypeEnchainement,duree from ActiviteEnchainement ae join Activite a on ae.idActivite = a.idActivite join Enchainement e on e.idEnchainement = ae.idEnchainement join TypeEnchainement te on te.idTypeEnchainement = e.idTypeEnchainement
