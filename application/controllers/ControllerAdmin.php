@@ -16,14 +16,14 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'NewTypeSakafo';
 		$this->load($data);
     }
-    public function nouveauTypeEnchainement()
+    public function nouveauTypeEnchainement() //view loader
     {
         $data = array();
         $data['typeObjectif'] = $this->TypeObjectif->getDonne();
         $data['content'] = 'NewTypeEnchainement';
 		$this->load($data);
     }
-    public function editTypeEnchainement()
+    public function editTypeEnchainement() //view loader
     {
         $data = array();
         $idTypeEnchainement = $this->input->get("idTypeEnchainement");
@@ -33,7 +33,22 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'editTypeEnchainement';
 		$this->load($data);
     }
-    public function insertNewTypeEnchainement()
+    public function modifierTypeEnchainement() //execute
+    {
+        $idTypeEnchainement = $this->input->post("idTypeEnchainement");
+        $idTypeObjectif = $this->input->post("idTypeObjectif");
+        $nomTypeEnchainement = $this->input->post("nomTypeEnchainement");
+        $TypeEnchainement = new TypeEnchainement($idTypeEnchainement,$nomTypeEnchainement,$idTypeObjectif);
+        $results = $TypeEnchainement->updateDonne();
+		if(!$results)
+        {
+            $this->editTypeEnchainement();
+        }
+        else{
+            redirect("ControllerAdmin/Index");
+        }
+    }
+    public function insertNewTypeEnchainement() //execute
     {
         $idTypeObjectif = $this->input->post("idTypeObjectif");
         $nomTypeEnchainement = $this->input->post("nomTypeEnchainement");

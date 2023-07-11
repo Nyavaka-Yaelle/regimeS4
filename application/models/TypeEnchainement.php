@@ -19,8 +19,13 @@
                 'idTypeObjectif' => $this->getIdTypeObjectif()
             );
             $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());
-            $this->db->update('TypeEnchainement', $data);
-            return $this->db->update_id();
+            if($this->db->update('TypeEnchainement', $data))
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         public function insertDonne()
         {
