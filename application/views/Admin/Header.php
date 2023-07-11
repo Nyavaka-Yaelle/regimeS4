@@ -124,6 +124,7 @@
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=11")?>">Sakafo</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=2")?>">Type Enchainement</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=21")?>">Enchainement</a></li>
+			<li><a href="<?php echo base_url("ControllerAdmin/content?action=22")?>">Activite</a></li>
 			<li><a href="<?php echo base_url("ControllerAdmin/content?action=3")?>">Carte</a></li>
 		</ul>
 	</nav>

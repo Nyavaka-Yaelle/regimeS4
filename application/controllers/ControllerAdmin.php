@@ -312,7 +312,13 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Carte';
 		$this->load($data);
 	}
-    
+    public function Activite()
+	{
+        $data = array();
+        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['content'] = 'Activite';
+        $this->load($data);
+	}
     public function load($data)
 	{
 		$this->load->view('Admin/Header');
@@ -341,6 +347,10 @@ class ControllerAdmin extends CI_Controller {
         else if($action==3)
         {
             $this->Carte();
+        }
+        else if($action==22)
+        {
+            $this->Activite();
         }
     }
 	
