@@ -6,6 +6,23 @@
         private $idTypeEnchainement;
         private $nom;
         private $idTypeObjectif;
+
+
+        public function getEcnhainement()
+        {
+            $this->db->where('idTypeEnchanement',$this->getIdTypeEnchainement());
+            $query = $this->db->get('Enchainement');
+            $results = array();
+            foreach ($query->result() as $row) {
+                $Enchainement = new Enchainement();
+                $Enchainement->setIdEnchainement($row->idEnchainement);
+                $Enchainement->setIdTypeEnchainement($row->idTypeEnchainement);
+                $Enchainement->setNom($row->nom);
+                $Enchainement->setDuree($row->duree);
+                $results[] = $Enchainement;
+            }
+            return $results;
+        }
         public function deleteDonne()
         {
             $query = $this->db->where('idTypeEnchainement',$this->getIdTypeEnchainement());

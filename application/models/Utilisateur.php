@@ -9,6 +9,7 @@
         private $motDePasse;
         private $identification;
 
+
         public function isEmailUnique() {
             $this->db->where('email', $this->email);
             $query = $this->db->get('Utilisateur');
@@ -39,11 +40,10 @@
         public function getTypeObjectif(){
             $objectif = new Objectif($this->getObjectifUtilisateur()->getIdObjectif());
             $objectif = $objectif->getDonneById();
-            $query = $this->db->where('idTypeObjectif',$objectif->getTypeObjectif());
+            $query = $this->db->where('idTypeObjectif',$objectif->getIdTypeObjectif());
             $query = $this->db->get('TypeObjectif');
-            $TypeObjectif = new Objectif();
+            $TypeObjectif = new TypeObjectif();
             foreach ($query->result() as $row) {
-                $TypeObjectif->setIdObjectif($row->idObjectif);
                 $TypeObjectif->setIdTypeObjectif($row->idTypeObjectif);
                 $TypeObjectif->setNom($row->nom);
                 return  $TypeObjectif;

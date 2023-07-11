@@ -204,12 +204,12 @@ class ControllerAdmin extends CI_Controller {
         $action = $this->input->get('action');
         if($action==1)
         {
-            $this->Sakafo();
-        } 
-        else if($action==11)
-        {
             $this->TypeSakafo();
         }
+        else if($action==11)
+        {
+            $this->Sakafo();
+        } 
         else if($action==2)
         {
             $this->TypeEnchainement();

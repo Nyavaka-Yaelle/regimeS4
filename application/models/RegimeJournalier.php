@@ -9,6 +9,38 @@
     private $idSakafo;
     private $idActivite;
    
+    public function getSakafo()
+    {
+        $this->db->where('idSakafo',$this->getIdSakafo());
+        $query = $this->db->get('RegimeJournalier');
+        $results = array();
+        foreach ($query->result() as $row) {
+            $RegimeJournalier = new RegimeJournalier();
+            $RegimeJournalier->setIdRegimeJournalier($row->idRegimeJournalier);
+            $RegimeJournalier->setIdRegime($row->idRegime);
+            $RegimeJournalier->setNumeroJour($row->numeroJour);
+            $RegimeJournalier->setIdSakafo($row->idSakafo);
+            $RegimeJournalier->setIdActivite($row->idActivite);
+            $results[] = $RegimeJournalier;
+        }
+        return $results;
+    }
+    public function getActivite()
+    {
+        $this->db->where('idActivite',$this->getIdActivite());
+        $query = $this->db->get('RegimeJournalier');
+        $results = array();
+        foreach ($query->result() as $row) {
+            $RegimeJournalier = new RegimeJournalier();
+            $RegimeJournalier->setIdRegimeJournalier($row->idRegimeJournalier);
+            $RegimeJournalier->setIdRegime($row->idRegime);
+            $RegimeJournalier->setNumeroJour($row->numeroJour);
+            $RegimeJournalier->setIdSakafo($row->idSakafo);
+            $RegimeJournalier->setIdActivite($row->idActivite);
+            $results[] = $RegimeJournalier;
+        }
+        return $results;
+    }
     public function getDonne()
     {
         $query = $this->db->get('RegimeJournalier');
