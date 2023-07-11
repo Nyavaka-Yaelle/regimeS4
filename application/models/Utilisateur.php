@@ -9,7 +9,6 @@
         private $motDePasse;
         private $identification;
 
-
         public function isEmailUnique() {
             $this->db->where('email', $this->email);
             $query = $this->db->get('Utilisateur');
