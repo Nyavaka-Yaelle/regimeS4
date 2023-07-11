@@ -80,6 +80,12 @@ create table Sakafo(
     `nom` varchar(100) not null,
     `prix` double not null
 );
+create table CompoSakafo(
+    `idCompoSakafo` integer primary key auto_increment,
+    `idSakafo` integer references Sakafo(idSakafo),
+    `nom` varchar(100) not null,
+    `quantite` double not null
+);
 
 insert into Sakafo(idTypeSakafo,nom,prix) values
 (1,'Salade de poulet grillé',6000),
