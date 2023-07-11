@@ -183,11 +183,22 @@ create table Carte(
     `code` varchar(14) not null,
     `montant` double not null
 );
+create table CarteDemande(
+    `idCarteDemande` integer auto_increment primary key,
+    `idCarte` integer references Carte(idCarte),
+    `dateDemande` date not null,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur)
+);
 create table CarteValider(
     `idCarteValider` integer auto_increment primary key,
     `idCarte` integer references Carte(idCarte),
     `dateValidation` date not null,
     `idUtilisateur` integer references Utilisateur(idUtilisateur)
+);
+create table PorteFeuille(
+    `idPorteFeuille` integer auto_increment primary key,
+    `idUtilisateur` integer references Utilisateur(idUtilisateur)
+    `montant` integer not null,
 );
 
 create or replace view v_ActiviteEnchainement as (
