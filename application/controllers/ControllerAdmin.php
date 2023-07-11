@@ -75,7 +75,7 @@ class ControllerAdmin extends CI_Controller {
         $idTypeEnchainement = $this->input->get("idTypeEnchainement");
         $TypeEnchainement = new TypeEnchainement($idTypeEnchainement,null,null);
         $Enchainement = new Enchainement(null,$idTypeEnchainement,null,null);
-        $result1 = $TypeEnchainement->deleteDonne();
+        $result1 = $Enchainement->deleteDonneByIdType();
         $result2 = $TypeEnchainement->deleteDonne();
 		if(!$result1 || !$result2)
         {
@@ -237,6 +237,73 @@ class ControllerAdmin extends CI_Controller {
     {
         redirect("ControllerAdmin/Sakafo");
     }
+    //crud  Enchainement
+    public function Enchainement() //view list loader
+    {
+        $data = array();
+        $data['listeEnchainement'] = $this->Enchainement->getDonne();
+        $data['content'] = 'Enchainement/Enchainement';
+        $this->load($data);
+    }
+    public function nouveauEnchainement() //view create loader
+    {
+        $data = array();
+        $data['typeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'Enchainement/NewEnchainement';
+        $this->load($data);
+    }
+    public function insertNewEnchainement() //execute create
+    {
+        $idTypeEnchainement = $this->input->post("idTypeEnchainement");
+        $nomEnchainement = $this->input->post("nomEnchainement");
+        $dureeEnchainement = $this->input->post("dureeEnchainement");
+        $newEnchainement = new Enchainement(null, $idTypeEnchainement,$nomEnchainement, $dureeEnchainement);
+        $results = $newEnchainement->insertDonne();
+        if(!$results) $this->nouveauEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }
+    public function editEnchainement() //view update loader
+    {
+        $data = array();
+        $idEnchainement = $this->input->get("idEnchainement");
+        $enchainement = new Enchainement($idEnchainement,null,null,null);
+        $data['Enchainement'] = $enchainement->getDonneById();
+        $typeEnchainement = new TypeEnchainement($enchainement->getIdTypeEnchainement(),null,null);
+        $data['typeEnchainement'] = $typeEnchainement->getDonneById();
+        $data['listeTypeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'Enchainement/EditEnchainement';
+        $this->load($data);
+    }
+    public function modifierEnchainement() //execute update
+    {
+        $idEnchainement = $this->input->post("idEnchainement");
+        $idTypeEnchainement = $this->input->post("idTypeEnchainement");
+        $nomEnchainement = $this->input->post("nomEnchainement");
+        $dureeEnchainement = $this->input->post("dureeEnchainement");
+        $enchainement = new Enchainement($idEnchainement,$idTypeEnchainement,$nomEnchainement, $dureeEnchainement);
+        $results = $enchainement->updateDonne();
+        if(!$results)$this->editEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }
+    public function deleteEnchainement() //view delete loader
+    {
+        $data = array();
+        $data['idEnchainement'] = $this->input->get("idEnchainement");
+        $data['content'] = 'Enchainement/DeleteEnchainement';
+        $this->load($data);
+    } 
+    public function supprimerEnchainement() //execute delete
+    {
+        $idEnchainement = $this->input->get("idEnchainement");
+        $Enchainement = new Enchainement($idEnchainement,null,null,null);
+        $results = $Enchainement->deleteDonne();
+        if(!$results) $this->deleteEnchainement();
+        else redirect("ControllerAdmin/Enchainement");
+    }  
+    public function annulerEnchainement() //redirect
+    {
+        redirect("ControllerAdmin/Enchainement");
+    }
     public function Carte()
 	{
         $data = array();
@@ -245,13 +312,7 @@ class ControllerAdmin extends CI_Controller {
         $data['content'] = 'Carte';
 		$this->load($data);
 	}
-    public function Enchainement()
-	{
-        $data = array();
-        $data['listeEnchainement'] = $this->Enchainement->getDonne();
-        $data['content'] = 'Enchainement';
-		$this->load($data);
-	}
+    
     public function load($data)
 	{
 		$this->load->view('Admin/Header');
