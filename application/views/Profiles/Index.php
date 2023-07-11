@@ -25,14 +25,14 @@
 						<form action="<?php echo base_url("ControllerProfiles/FillProfiles") ?>" class="login-form" method="post">
 							<div class="form-group d-md-flex">
 								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Male
-										<input type="radio" name="genre" checked  value="1">
+									<label class="checkbox-wrap checkbox-primary">Homme
+										<input type="radio" name="genre" value="0" checked>
 										<span class="checkmark"></span>
 									</label>
 								</div>
 								<div class="w-50">
-									<label class="checkbox-wrap checkbox-primary">Female
-										<input type="radio" name="genre" value="0">
+									<label class="checkbox-wrap checkbox-primary">Femme
+										<input type="radio" name="genre" value="1">
 										<span class="checkmark"></span>
 									</label>
 								</div>
