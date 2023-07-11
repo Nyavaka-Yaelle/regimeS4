@@ -208,3 +208,5 @@ create or replace view v_Sakafo as (
 create or replace view v_TypeSakafo as (
     select ts.*,ob.nom nomTypeObjectif from TypeSakafo ts join TypeObjectif ob on ts.idTypeObjectif = ob.idTypeObjectif
 );
+
+select ae.*,a.nom, e. from ActiviteEnchainement ae join Activite a on ae.idActivite = a.idActivite join Enchainement e on e.idEnchainement = ae.idEnchainement;
