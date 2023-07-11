@@ -3,8 +3,14 @@
 			<div class="container">
 			<h3><b>Liste Enchainement par Activite</b></h3>
 				<hr>
-				<div><button><a href="<?php echo base_url("ControllerAdmin/nouveauEnchainement");?>">Ajouter Nouveau</a></button></div>
-				<table>
+				<div><button><a href="<?php echo base_url("ControllerAdmin/nouvellleActivite");?>">Ajouter Nouveau Activite</a></button></div>
+				<?php foreach($listeActivite as $activite) { ?>
+					<div style="display:flex;padding:20px;">
+						<h5><strong><?php echo $activite->getNom();?></strong></h5>
+						<div><button ><a href="<?php echo base_url("ControllerAdmin/nouveauEnchainement");?>">Ajouter Enchainement</a></button></div>
+					</div>
+					
+					<table>
 					<thead>
 						<tr>
 							<th rowspan=3>Activite</th>
@@ -16,22 +22,22 @@
 						</tr>
 					</thead>
 					<tbody>
-					<?php 
-                    $row = 0;
-                    foreach($listeEnchainement as $enchainement){ ?>
+					<?php
+						$activiteEnchainement = new ActiviteEnchainement(null,$activite->getIdActivite(), null);
+						$listeEnchainement = $activiteEnchainement->getEnchainementsByIdActivite();
+						foreach($listeEnchainement as $enchainement){ ?>
 							<tr>
-                                <td ><?php echo "Activite1";?></td>
 								<td><?php echo $enchainement->getTypeEnchainement()->getNom();?></td>
 								<td><?php echo $enchainement->getNom();?></td>
 								<td class="right"><?php echo $enchainement->getDuree(); ?> min</td>
-								<td><button><a href="<?php echo base_url("ControllerAdmin/editEnchainement?idEnchainement=".$enchainement->getIdEnchainement());?>">Modifier</a></button></td>
-								<td><button><a href="<?php echo base_url("ControllerAdmin/deleteEnchainement?idEnchainement=".$enchainement->getIdEnchainement());?>">Supprimer</a></button></td>
+								<td><button><a href="<?php echo base_url("ControllerAdmin/editActiviteEnchainement?idEnchainement=".$enchainement->getIdEnchainement()."&&idActivite=".$activite->getIdActivite());?>">Modifier</a></button></td>
+								<td><button><a href="<?php echo base_url("ControllerAdmin/deleteActiviteEnchainement?idEnchainement=".$enchainement->getIdEnchainement()."&&idActivite=".$activite->getIdActivite());?>">Supprimer</a></button></td>
 							</tr>
 						<?php
-                    $row++;
                     } ?>
 					</tbody>
-				</table>			
+				</table>
+			<?php } ?>			
 			</div>
 		</section>
 	</div>

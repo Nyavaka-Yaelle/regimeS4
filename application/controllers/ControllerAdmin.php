@@ -318,6 +318,14 @@ class ControllerAdmin extends CI_Controller {
     {
         redirect("ControllerAdmin/Enchainement");
     }
+    //activite crud
+    public function nouvelleActivite() //view create loader
+    {
+        $data = array();
+        $data['typeEnchainement'] = $this->TypeEnchainement->getDonne();
+        $data['content'] = 'Enchainement/NewEnchainement';
+        $this->load($data);
+    }
     public function Carte()
 	{
         $data = array();
