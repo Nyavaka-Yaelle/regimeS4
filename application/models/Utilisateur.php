@@ -101,9 +101,9 @@
             }
             return null;
         }
-        public function getProteFeuille()
+        public function getPorteFeuille()
         {
-            $this->db->where('idUtilisateur',$this->getIdUtilisateur())
+            $this->db->where('idUtilisateur',$this->getIdUtilisateur());
             $query = $this->db->get('PorteFeuille');
             foreach ($query->result() as $row) {
                 $PorteFeuille = new PorteFeuille();

@@ -16,7 +16,7 @@ class ControllerFront extends CI_Controller {
             $this->user = $this->user->getUtilisateur();
         }
         if($this->user->getPorteFeuille()== null){
-            $protefeuille = new PorteFeuille(null,$user->getIdUtilisateur(),0);
+            $protefeuille = new PorteFeuille(null,$this->user->getIdUtilisateur(),0);
             $protefeuille->insertDonne();
         }
 	}
