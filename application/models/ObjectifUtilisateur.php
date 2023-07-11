@@ -8,7 +8,20 @@
         private $idObjectif;
 
         public function getObjectif(){
+            $this->db->where('idObjectif', $this->getIdObjectif());
+            $query = $this->db->get('Objectif');
+            foreach ($query->result() as $row) {
+                $typeObjectif = new Objectif();
+                $typeObjectif->setIdObjectif($row->idObjectif);
+                $typeObjectif->setIdTypeObjectif($row->idTypeObjectif);
+                $typeObjectif->setNom($row->nom);
+                return $typeObjectif;
+            }
+            return null;
+        }
+        public function getObjectifUtilisateur(){
             $this->db->where('idObjectifUtilisateur', $this->getIdObjectifUtilisateur());
+            $this->db->where('idUtilisateur', $this->getIdUtilisateur());
             $query = $this->db->get('Objectif');
             $results = array();
             foreach ($query->result() as $row) {
