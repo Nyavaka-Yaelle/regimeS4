@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Graphique Donut</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="donutChart" width="200" height="200"></canvas>
+
+  <script>
+    // Données du graphique
+    var data = {
+      labels: ['Label 1', 'Label 2', 'Label 3'],
+      datasets: [{
+        data: [30, 50, 20],
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+        hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56']
+      }]
+    };
+
+    // Options du graphique
+    var options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutoutPercentage: 50, // Taille du trou intérieur du donut en pourcentage
+      legend: {
+        position: 'bottom'
+      }
+    };
+
+    // Création du graphique en donut
+    var donutChart = new Chart(document.getElementById('donutChart'), {
+      type: 'doughnut',
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+</html>
