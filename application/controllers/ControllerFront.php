@@ -48,4 +48,15 @@ class ControllerFront extends CI_Controller {
         $data['regimeJournaliers'] = $this->user->getRegimeJournalier();
         $this->load->view('Home/RegimeJournalier',$data);
     }
+    public function Recharger(){
+        $code = $this->input->post('rechargeCode');
+        $carte = new Carte(null,$code,null);
+        if($carte->checkCode()){
+            $this->Historique();
+        }
+        $this->AjourCaisse();
+    }
+    public function Historique(){
+        $this->load->view('Home/HistoriqueRechargement');
+    }
 }

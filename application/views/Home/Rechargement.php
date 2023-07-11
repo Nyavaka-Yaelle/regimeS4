@@ -35,7 +35,10 @@
                                 <form action="<?php echo base_url('ControllerFront/Recharger') ?>">
                                     <h3 class="text-center mb-4">Rechargement</h3>
                                     <div class="form-group">
-                                        <input type="text" class="form-control rounded-left" placeholder="Code de rechargement" name="rechargeCode" required>
+                                        <input type="text" class="form-control rounded-left" placeholder="Code de rechargement a 14 caractere" name="rechargeCode" required>
+                                    </div>
+                                    <div class="form-group d-md-flex">
+                                        <a href="<?php echo base_url("ControllerFront/Historique") ?>">Historique des transaction</a>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary rounded submit p-3 px-5" name="Ajouter" >Recharger</button>

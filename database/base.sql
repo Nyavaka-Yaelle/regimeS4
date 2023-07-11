@@ -205,6 +205,8 @@ create table PorteFeuille(
     `montant` integer not null
 );
 
+select  c.* from Carte left join CarteValider where idCarteValider = null;
+
 create or replace view v_ActiviteEnchainement as (
 select ae.*,a.nom, e.nom nomEnchainement,e.idTypeEnchainement,duree from ActiviteEnchainement ae join Activite a on ae.idActivite = a.idActivite join Enchainement e on e.idEnchainement = ae.idEnchainement join TypeEnchainement te on te.idTypeEnchainement = e.idTypeEnchainement
 );

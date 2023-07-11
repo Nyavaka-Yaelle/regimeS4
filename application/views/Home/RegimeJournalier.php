@@ -40,8 +40,8 @@
                             <br>
                             <label>votre entrainement : 
                                 <?php foreach ($regimeJournalier->getEnchainement() as $enchainement) { ?>
-                                    <strong>-> </strong> <?php echo $enchainement->getNom() ?> <b> pendant : <?php echo $enchainement->getDuree() ?> min </b>
                                     <br>
+                                    <strong>-> </strong> <?php echo $enchainement->getNom() ?> <b> pendant : <?php echo $enchainement->getDuree() ?> min </b>
                                 <?php } ?>
                             </lable>
                         </p>
