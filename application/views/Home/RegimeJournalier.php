@@ -27,26 +27,42 @@
             </div>
         </header>
         <main>
-            <fieldset id="accordion">
+            <fieldset id="accordion" >
+            <label>
+                    <span style="width:100%;">Exporter en pdf</span>
+                    <input type="radio" value="bar" name="accordion">
+                    <div>
+                        <p>
+                            <button>Exporter en PDF</button>
+                        </p>
+                    </div>
+                </label>
+                <br>
                 <?php foreach($regimeJournaliers as $regimeJournalier){ ?>
                 <label>
-                    <span style="width:100%;">jour <?php echo $regimeJournalier->getNumeroJour() + 1 ?></span>
+                    <span>jour <?php echo $regimeJournalier->getNumeroJour() + 1 ?></span>
                     <input type="radio" value="bar<?php echo $regimeJournalier->getNumeroJour() + 1 ?>" name="accordion">
                     <div>
                         <p>
-                            <label>votre repas du jour : <?php echo $regimeJournalier->getSakafo()->getNom() ?> </label>
+                            <label>votre repas du jour : <i><b><?php echo $regimeJournalier->getSakafo()->getNom() ?> </b></i></label>
                             <br>
                             <label>prix: <?php echo $regimeJournalier->getSakafo()->getPrix() ?> </label>
+                            <?php foreach ($regimeJournalier->getSakafo()->getCompoSakafo() as $compoSakafo) { ?>
+                                <br>
+                                    <strong>-> </strong> <?php echo $compoSakafo->getNomComp() ?> <b> Quantite : <?php echo $compoSakafo->getQuantite() ?> % </b>
+                                <?php } ?>
+                            <label></label>
                             <br>
                             <label>votre entrainement : 
                                 <?php foreach ($regimeJournalier->getEnchainement() as $enchainement) { ?>
                                     <br>
                                     <strong>-> </strong> <?php echo $enchainement->getNom() ?> <b> pendant : <?php echo $enchainement->getDuree() ?> min </b>
                                 <?php } ?>
-                            </lable>
+                            </label>
                         </p>
                     </div>
                 </label>
+                <br>
                 <?php } ?>
             </fieldset>
         </main>

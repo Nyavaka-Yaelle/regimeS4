@@ -7,6 +7,23 @@
     private $idTypeSakafo;
     private $nom;
     private $prix;
+
+    public function getCompoSakafo(){
+        $this->db->where('idSakafo',$this->getIdSakafo());
+        $query = $this->db->get('CompoSakafo');
+        $result = $query->result();
+        $composakafoArray = array();
+        foreach ($result as $row) {
+            $composakafo = new CompoSakafo(
+                $row->idCompoSakafo,
+                $row->idSakafo,
+                $row->nomComp,
+                $row->quantite
+            );
+            $composakafoArray[] = $composakafo;
+        }
+        return $composakafoArray;
+    }
     public function deleteDonneByIdType()
     {
         $query = $this->db->where('idTypeSakafo',$this->getIdTypeSakafo());
